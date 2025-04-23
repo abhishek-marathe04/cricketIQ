@@ -1,3 +1,4 @@
+
 import uuid
 from stats.common_functions.custom_exceptions import AmbiguousPlayerNameError, NoPlayerFoundError
 from utils.logger import get_logger
@@ -13,20 +14,36 @@ st.set_page_config(page_title="CricketIQ LLM", layout="wide")
 posthog.api_key = POSTHOG_API_KEY
 posthog.host = POSTHOG_HOST
 
-posthog_js = f"""
+posthog_js = """
 <!-- PostHog JS snippet -->
 <script>
-!function(t,e){{var o,n,p;window.posthog=window.posthog||[],posthog._i=[],
-posthog.init=function(i,s){{function r(t,e){{var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){{t.push([e].concat(Array.prototype.slice.call(arguments,0)));}}}}
-var a=posthog;"undefined"!==typeof s?a=posthog[s]=[]:s="posthog";
-a.people=a.people||[],posthog._i.push([i,s]);for(var c=["capture","identify","alias","people.set","people.delete_user"],u=0;u<c.length;u++)r(posthog,c[u]);
-}},
-posthog.__SV=1;var d=e.createElement("script");d.type="text/javascript",d.async=!0,d.src="{POSTHOG_HOST}/static/array.js";var m=e.getElementsByTagName("script")[0];
-m.parentNode.insertBefore(d,m)
+!function(t,e){{
+    var o,n,p;
+    window.posthog=window.posthog||[],posthog._i=[],
+    posthog.init=function(i,s){{
+        function r(t,e){{
+            var o=e.split(".");
+            2==o.length&&(t=t[o[0]],e=o[1]),
+            t[e]=function(){{
+                t.push([e].concat(Array.prototype.slice.call(arguments,0)));
+            }}
+        }}
+        var a=posthog;
+        "undefined"!==typeof s ? a=posthog[s]=[] : s="posthog";
+        a.people=a.people||[];
+        posthog._i.push([i,s]);
+        for(var c=["capture","identify","alias","people.set","people.delete_user"],u=0;u<c.length;u++) r(posthog,c[u]);
+    }},
+    posthog.__SV=1;
+    var d=e.createElement("script");
+    d.type="text/javascript",d.async=!0,d.src="{host}/static/array.js";
+    var m=e.getElementsByTagName("script")[0];
+    m.parentNode.insertBefore(d,m)
 }}(document,window.posthog||[]);
-posthog.init("{POSTHOG_API_KEY}", {{api_host: "{POSTHOG_HOST}"}} );
+posthog.init("{api_key}", {{api_host: "{host}"}} );
+posthog.capture("$pageview");
 </script>
-"""
+""".format(api_key=POSTHOG_API_KEY, host=POSTHOG_HOST)
 
 st.components.v1.html(posthog_js, height=0)
 
