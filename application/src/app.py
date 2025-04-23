@@ -10,6 +10,8 @@ from config import POSTHOG_API_KEY, POSTHOG_HOST
 logger = get_logger()
 st.set_page_config(page_title="CricketIQ LLM", layout="wide")
 
+posthog.api_key = POSTHOG_API_KEY
+posthog.host = POSTHOG_HOST
 
 posthog_js = f"""
 <!-- PostHog JS snippet -->
