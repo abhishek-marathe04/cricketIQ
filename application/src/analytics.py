@@ -1,43 +1,50 @@
-from config import IS_PROD, GA_MEASUREMENT_ID
-import streamlit.components.v1 as components
+import streamlit as st
+import posthog
+from config import POSTHOG_API_KEY, POSTHOG_HOST
 
-def inject_ga_script():
-    if IS_PROD and GA_MEASUREMENT_ID.startswith("G-"):
-        components.html(f"""
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){{dataLayer.push(arguments);}}
-          gtag('js', new Date());
-          gtag('config', '{GA_MEASUREMENT_ID}');
-        </script>
-        """, height=0)
+posthog.api_key = POSTHOG_API_KEY
+posthog.host = POSTHOG_HOST
 
-def track_user_event(user_input: str, output: str):
-    if IS_PROD and GA_MEASUREMENT_ID.startswith("G-"):
-        components.html(f"""
-        <script>
-            if (window.gtag) {{
-                gtag('event', 'user_interaction', {{
-                    'event_category': 'User Query',
-                    'event_label': `{user_input}`,
-                    'value': `{output}`
-                }});
+def inject_analytics_script():
+    
+    posthog_js = """
+    <!-- PostHog JS snippet -->
+    <script>
+    !function(t,e){{
+        var o,n,p;
+        window.posthog=window.posthog||[],posthog._i=[],
+        posthog.init=function(i,s){{
+            function r(t,e){{
+                var o=e.split(".");
+                2==o.length&&(t=t[o[0]],e=o[1]),
+                t[e]=function(){{
+                    t.push([e].concat(Array.prototype.slice.call(arguments,0)));
+                }}
             }}
-        </script>
-        """, height=0)
+            var a=posthog;
+            "undefined"!==typeof s ? a=posthog[s]=[] : s="posthog";
+            a.people=a.people||[];
+            posthog._i.push([i,s]);
+            for(var c=["capture","identify","alias","people.set","people.delete_user"],u=0;u<c.length;u++) r(posthog,c[u]);
+        }},
+        posthog.__SV=1;
+        var d=e.createElement("script");
+        d.type="text/javascript",d.async=!0,d.src="{host}/static/array.js";
+        var m=e.getElementsByTagName("script")[0];
+        m.parentNode.insertBefore(d,m)
+    }}(document,window.posthog||[]);
+    posthog.init("{api_key}", {{api_host: "{host}"}} );
+    posthog.capture("$pageview");
+    </script>
+    """.format(api_key=POSTHOG_API_KEY, host=POSTHOG_HOST)
 
-def track_error_event(error_message: str, context: str = "app"):
-    if IS_PROD and GA_MEASUREMENT_ID.startswith("G-"):
-        components.html(f"""
-        <script>
-            if (window.gtag) {{
-                gtag('event', 'error_occurred', {{
-                    'event_category': 'Error',
-                    'event_label': `{context}`,
-                    'value': `{error_message}`
-                }});
-            }}
-        </script>
-        """, height=0)
+    st.components.v1.html(posthog_js, height=0)
+
+
+def track_event(user_id, event_name, properties=None):
+    """Function to track events with PostHog."""
+    posthog.capture(
+        distinct_id=user_id,  # You can use a user ID or session ID here
+        event=event_name,
+        properties=properties if properties else {}
+    )
