@@ -7,9 +7,9 @@ from together import Together
 from config import TOGETHER_API_KEY
 
 def get_llm_client(env="local"):
-    # if env == "prod":
-    #     return Together(api_key=TOGETHER_API_KEY)
-    # else:
+    if env == "prod":
+        return Together(api_key=TOGETHER_API_KEY)
+    else:
         return OpenAI(
             base_url="http://localhost:1234/v1",
             api_key="lm-studio",  # Dummy
