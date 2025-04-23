@@ -1,0 +1,25 @@
+ipl_insights_app/
+├── data/                         # Static data files like CSVs or mappings
+│   ├── players.csv
+│   └── team_info.json
+├── notebooks/                   # Any data exploration or experiment notebooks
+│   └── analysis.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── app.py                   # Main Streamlit entry point
+│   ├── langgraph/
+│   │   ├── __init__.py
+│   │   ├── nodes.py             # Functions for LangGraph nodes (LLM calls, data retrieval, etc.)
+│   │   ├── edges.py             # Logic to connect LangGraph nodes
+│   │   └── graph.py             # Definition of the full LangGraph
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── data_loader.py       # Functions to load data and preprocess
+│   │   ├── stats_helpers.py     # Core functions that return player/team stats and graphs
+│   │   └── mapping.py           # Name normalizers, alias handling (Virat = V Kohli etc.)
+├── tests/
+│   ├── test_stats.py
+│   └── test_llm_routing.py
+├── .env
+├── requirements.txt
+└── README.md

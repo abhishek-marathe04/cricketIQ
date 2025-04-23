@@ -1,0 +1,14 @@
+pandas
+numpy
+plotly
+streamlit
+langgraph
+langchain
+langchain-openai
+openai
+python-dotenv
+tqdm
+langchain-huggingface
+langchain_community
+huggingface-hub
+together

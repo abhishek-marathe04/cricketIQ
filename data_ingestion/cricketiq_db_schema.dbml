@@ -1,0 +1,135 @@
+Table seasons {
+  season_id serial [primary key]
+  year integer [unique, not null]
+  start_date date
+  end_date date
+  winner integer [ref: > teams.team_id]
+  runner_up integer [ref: > teams.team_id]
+}
+
+Table matches {
+  match_id serial [primary key]
+  season_id integer [ref: > seasons.season_id]
+  balls_per_over integer
+  city varchar(100)
+  match_date date
+  event_name varchar(100)
+  match_number integer
+  gender varchar(10)
+  match_type varchar(20)
+  format varchar(20)
+  overs integer
+  season varchar(10)
+  team_type varchar(20)
+  venue varchar(255)
+  toss_winner integer [ref: > teams.team_id]
+  team1 integer [ref: > teams.team_id]
+  team2 integer [ref: > teams.team_id]
+  toss_decision varchar(10)
+  match_winner integer [ref: > teams.team_id]
+  win_by_runs integer
+  win_by_wickets integer
+  result varchar(10) [default: 'win'] // Can be 'win', 'tie', or 'no result'
+  player_of_match integer [ref: > players.player_id]
+}
+
+
+Table team_performance {
+  performance_id serial [primary key]
+  match_id integer [ref: > matches.match_id]
+  team_id integer [ref: > teams.team_id]
+  opponent_team_id integer [ref: > teams.team_id]
+  total_runs integer
+  wickets_lost integer
+  overs_faced decimal(3,1)
+  extras integer
+  boundaries integer
+  sixes integer
+  run_rate decimal(4,2)
+  result varchar(10) // e.g., 'Win', 'Loss', 'Tie'
+}
+
+Table players {
+  player_id serial [primary key]
+  player_name varchar(100) [unique, not null]
+  bat_style varchar(50)
+  bowl_style varchar(50)
+  field_pos varchar(50)
+  player_full_name varchar(100)
+}
+
+Table teams {
+  team_id serial [primary key]
+  team_name varchar(100) [unique, not null]
+}
+
+Table team_aliases {
+  alias_id serial [primary key]
+  team_id integer [ref: > teams.team_id]
+  alias_name varchar(100) [unique, not null]
+}
+
+Table player_performance {
+  performance_id serial [primary key]
+  match_id integer [ref: > matches.match_id]
+  player_id integer [ref: > players.player_id]
+  player_name varchar [ref: > players.player_name]
+  runs_scored integer
+  balls_faced integer
+  fours integer
+  sixes integer
+  wickets_taken integer
+  overs_bowled decimal(3,1)
+  extras_conceded integer
+  dot_balls_bowled integer
+  maidens integer
+  runs_conceded integer
+  catches integer
+  stumpings integer
+  run_outs integer
+  team_id integer [ref: > teams.team_id]
+  team_name varchar [ref: > teams.team_name]
+  opponent_team_id integer [ref: > teams.team_id]
+  opponent_team_name varchar [ref: > teams.team_name]
+  Indexes {
+    (match_id, player_id) [unique]
+  }
+}
+
+
+
+Table ball_by_ball_stats {
+  season_id integer [ref: > seasons.season_id]
+  match_id integer [ref: > matches.match_id]
+  batter varchar [ref: > players.player_name]
+  bowler varchar [ref: > players.player_name]
+  non_striker varchar [ref: > players.player_name]
+  team_batting integer [ref: > teams.team_id]
+  team_bowling integer [ref: > teams.team_id]
+  over_number integer
+  ball_number integer
+  batter_runs integer
+  extras integer
+  total_runs integer
+  batsman_type varchar(100)
+  bowler_type varchar(100)
+  player_out varchar(100)
+  fielders_involved JSON
+  is_wicket bool [default: false]
+  is_wide_ball bool [default: false]
+  is_no_ball bool [default: false]
+  is_leg_bye bool [default: false]
+  is_bye bool [default: false]
+  is_penalty bool [default: false]
+  wide_ball_runs integer [default: 0]
+  no_ball_runs integer [default: 0]
+  leg_bye_runs integer [default: 0]
+  bye_runs integer [default: 0]
+  penalty_runs integer [default: 0]
+  wicket_kind varchar(100)
+  is_super_over bool [default: false]
+  innings integer
+  Indexes {
+    (match_id, innings, over_number, ball_number) [unique]
+  }
+}
