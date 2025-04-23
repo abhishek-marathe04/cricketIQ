@@ -18,6 +18,8 @@ langchain-huggingface = "*"
 langchain_community = "*"
 huggingface-hub = "*"
 together = "*"
+posthog = "*"
+
 [dev-packages]
 
 [requires]
