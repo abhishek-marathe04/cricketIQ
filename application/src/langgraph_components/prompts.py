@@ -6,6 +6,7 @@ prompt_template = """
     - player_stats_in_season(player_name, season)
     - player_stats_vs_bowler_type(player_name, bowler_type)
     - batter_stats_vs_bowler(batter_name, bowler_name)
+    - batter_stats_vs_team(batter_name, opponent_team_name)
 
     Your response must **only return the JSON object** for the function that matches the given query. **No additional text, spaces, or newlines**.
 

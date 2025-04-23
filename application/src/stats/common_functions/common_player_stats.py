@@ -1,5 +1,5 @@
 import pandas as pd
-from stats.common_functions.graph_functions import show_bar_graph
+from stats.common_functions.graph_functions import show_bar_graph, show_line_graph
 from stats.common_functions.maths_utilities import add_strike_rate_to_df, get_average, get_legal_deliveries, get_number_of_fours, get_number_of_outs, get_number_of_six, get_strike_rate, get_wicket_stats
 
 
@@ -46,3 +46,19 @@ def show_player_average(df, group_by_field, player_name, title):
     
     df_avg = df_avg.sort_values(by='average', ascending=False)
     return show_bar_graph(df=df_avg, x=group_by_field, y='average', title=title)
+
+
+def show_runs_per_season(df):
+    df_per_season = (
+        df
+        .groupby(['season_id'])['batter_runs']
+        .sum()
+        .reset_index()
+    )
+    
+    return show_line_graph(
+        df=df_per_season,
+        x='season_id',
+        y='batter_runs',
+        title='Runs Per Season',
+    )

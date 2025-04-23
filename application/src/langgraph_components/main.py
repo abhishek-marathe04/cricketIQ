@@ -1,5 +1,5 @@
 from langgraph_components.pydantic_models import AppState
-from langgraph_components.nodes import parse_query_node, run_batter_stats_vs_bowler, run_player_stats_per_season, run_player_stats_vs_bowler_type
+from langgraph_components.nodes import parse_query_node, run_batter_stats_vs_bowler, run_batter_stats_vs_team, run_player_stats_per_season, run_player_stats_vs_bowler_type
 from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnableLambda
 from utils.logger import get_logger
@@ -15,6 +15,8 @@ def router(state):
         return "player_stats_vs_bowler_type"
     if state["intent"] == "batter_stats_vs_bowler":
         return "batter_stats_vs_bowler"
+    if state["intent"] == "batter_stats_vs_team":
+        return "batter_stats_vs_team"
     return END
 
 
@@ -24,6 +26,7 @@ builder.add_node("llm_parser", RunnableLambda(parse_query_node))
 builder.add_node("player_stats_per_season", RunnableLambda(run_player_stats_per_season))
 builder.add_node("player_stats_vs_bowler_type", RunnableLambda(run_player_stats_vs_bowler_type))
 builder.add_node("batter_stats_vs_bowler", RunnableLambda(run_batter_stats_vs_bowler))
+builder.add_node("batter_stats_vs_team", RunnableLambda(run_batter_stats_vs_team))
 
 builder.set_entry_point("llm_parser")
 builder.add_conditional_edges(
@@ -33,6 +36,7 @@ builder.add_conditional_edges(
         "player_stats_per_season": "player_stats_per_season",
         "player_stats_vs_bowler_type": "player_stats_vs_bowler_type",
         "batter_stats_vs_bowler": "batter_stats_vs_bowler",
+        "batter_stats_vs_team": "batter_stats_vs_team",
         "__end__": END
     }
 )

@@ -21,6 +21,11 @@ class BatterStatsAgainstBowlerArguments(BaseModel):
     batter_name: str
     bowler_name: str
 
+
+class BatterStatsAgainstTeamArguments(BaseModel):
+    batter_name: str
+    opponent_team_name: str
+
 # Pydantic
 class ParseIntentAndArguments(BaseModel):
     """Parsing intent and User arguments"""
@@ -29,5 +34,6 @@ class ParseIntentAndArguments(BaseModel):
     arguments: Union[
         PlyaerStatsInSeasonArguments,
         PlayerStatsAgainstBowlerTypeArguments,
-        BatterStatsAgainstBowlerArguments
+        BatterStatsAgainstBowlerArguments,
+        BatterStatsAgainstTeamArguments
     ]
