@@ -32,7 +32,7 @@ sample_prompts = {
     'Fetch Player stats in season': '"Show me stats of Virat Kohli in 2024"',
     'Fetch Player stats vs bowler type': '"Show me stats of Rohit Sharma vs fast bowlers"',
     'Fetch Batter stats vs bowler': '"Show me stats of Virat Kohli vs Jasprit Bumrah"',
-    'Fetch Batter stats vs Team': '"Show me stats of Shubman Gill vs Mumbai Indians"',
+    'Fetch Batter stats vs Team': '"Show me stats of Shubman Gill vs Mumbai Indians in Mumbai"',
 }
 
 with st.expander("📋 Show Sample Prompts"):
