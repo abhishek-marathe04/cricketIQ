@@ -1,4 +1,4 @@
-from typing import Any, Dict, TypedDict, Union
+from typing import Any, Dict, Optional, TypedDict, Union
 from pydantic import BaseModel, Field
 
 class AppState(TypedDict, total=False):
@@ -25,6 +25,7 @@ class BatterStatsAgainstBowlerArguments(BaseModel):
 class BatterStatsAgainstTeamArguments(BaseModel):
     batter_name: str
     opponent_team_name: str
+    city_name: Optional[str] = None
 
 # Pydantic
 class ParseIntentAndArguments(BaseModel):

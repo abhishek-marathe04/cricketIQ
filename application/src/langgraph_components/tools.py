@@ -1,3 +1,4 @@
+from typing import Optional
 from stats.player.player_stats_vs_particular_team import show_batter_stats_vs_team
 from stats.player.player_stats_vs_bowler import show_batter_stats_vs_bowler
 from utils.logger import get_logger
@@ -32,7 +33,7 @@ def call_batter_stats_vs_bowler(batter_name: str, bowler_name: str):
 
 # Tool (could also be agent tool)
 @tool(description="Fetches Batter stats data vs team")
-def call_batter_stats_vs_team(batter_name: str, opponent_team_name: str):
-    table, graph = show_batter_stats_vs_team(batter_name=batter_name, opponent_team_name=opponent_team_name)
+def call_batter_stats_vs_team(batter_name: str, opponent_team_name: str, city_name: Optional[str]):
+    table, graph = show_batter_stats_vs_team(batter_name=batter_name, opponent_team_name=opponent_team_name, city_name=city_name)
     logger.info(f'Inside call_batter_stats_vs_bowler  : {table}')
     return table, graph # placeholder

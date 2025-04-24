@@ -51,6 +51,13 @@ def process_ball_by_ball_data():
         how='left'
     ).rename(columns={'team_name': 'team_bowling_name'}).drop(columns='team_id')
 
+    ball_by_ball_df = ball_by_ball_df.merge(
+        matches_df[['match_id', 'city']],
+        on='match_id',
+        how='left'  # or 'inner' if you only want matches present in both
+    )
+
+
     ball_by_ball_df['over_phase'] = ball_by_ball_df['over_number'].apply(categorize_over)
     
     # Returning combined and processed DataFrame

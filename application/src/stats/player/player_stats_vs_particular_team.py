@@ -1,5 +1,6 @@
 
 
+from typing import Optional
 import pandas as pd
 from utils.logger import get_logger
 from stats.common_functions.maths_utilities import add_strike_rate_to_df
@@ -10,13 +11,23 @@ from stats.load_dataframes import get_ball_by_ball_data, get_player_name
 logger = get_logger()
 
 
-def show_batter_stats_vs_team(batter_name:str, opponent_team_name: str):
+def show_batter_stats_vs_team(batter_name:str, opponent_team_name: str, city_name: Optional[str]):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
     batter_name = get_player_name(batter_name)
 
-    logger.info(f"Inside show_batter_stats_vs_bowler batter_name {batter_name} opponent_team_name {opponent_team_name}")
+    # Base filter: player vs team
+    mask = (
+        (ipl_ball_by_ball_stats['batter'] == batter_name) &
+        (ipl_ball_by_ball_stats['team_bowling_name'] == opponent_team_name)
+    )
 
-    player_stats_vs_particular_team = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['batter'] == batter_name) & (ipl_ball_by_ball_stats['team_bowling_name'] == opponent_team_name)]
+    # Optionally add city filter if city_name is provided
+    if city_name:  # Ensure it's not None or empty
+        mask &= (ipl_ball_by_ball_stats['city'] == city_name)
+
+    logger.info(f"Inside show_batter_stats_vs_bowler batter_name {batter_name} opponent_team_name {opponent_team_name} city_name {city_name}")
+
+    player_stats_vs_particular_team = ipl_ball_by_ball_stats[mask]
 
     balls_faced, runs_scored, outs, fours, six, average, strike_rate = get_batter_stats(player_stats_vs_particular_team, batter_name)
 
