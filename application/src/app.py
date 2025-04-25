@@ -29,10 +29,10 @@ user_id = st.session_state.user_id
 
 # Define sample prompts
 sample_prompts = {
-    'Fetch Player stats in season': '"Show me stats of Virat Kohli in 2024"',
-    'Fetch Player stats vs bowler type': '"Show me stats of Rohit Sharma vs fast bowlers"',
-    'Fetch Batter stats vs bowler': '"Show me stats of Virat Kohli vs Jasprit Bumrah"',
-    'Fetch Batter stats vs Team': '"Show me stats of Shubman Gill vs Mumbai Indians in Mumbai"',
+    'Fetch Player stats in season': '"How did Virat Kohli perform in season 2024?"',
+    'Fetch Player stats vs bowler type': '"How does Rohit Sharma fare against pacers?"',
+    'Fetch Batter stats vs bowler': '"How has Virat Kohli played against Bumrah?"',
+    'Fetch Batter stats vs Team': '"Shubman Gill’s record vs MI, especially in Mumbai?"',
 }
 
 with st.expander("📋 Show Sample Prompts"):

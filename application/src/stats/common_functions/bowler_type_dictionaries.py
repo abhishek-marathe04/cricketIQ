@@ -92,6 +92,7 @@ def resolve_bowler_type(user_input: str) -> str:
         "fast": "fast_bowlers",
         "fast bowler": "fast_bowlers",
         "fast bowlers": "fast_bowlers",
+        "pacers": "fast_bowlers",
 
         "medium pace": "medium_pace_bowlers",
         "medium pacers": "medium_pace_bowlers",
