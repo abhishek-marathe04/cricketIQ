@@ -8,6 +8,7 @@ from stats.common_functions.custom_exceptions import AmbiguousPlayerNameError, N
 # Set the root directory if needed for relative paths
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 ipl_teams_path = os.path.join(ROOT_DIR, "ipl-dataset-2008-to-2025/teams_data.csv")
+ipl_teams_alias_path = os.path.join(ROOT_DIR, "ipl-dataset-2008-to-2025/team_aliases.csv")
 ipl_matches_path = os.path.join(ROOT_DIR, "ipl-dataset-2008-to-2025/ipl_matches_data.csv")
 ipl_players_path = os.path.join(ROOT_DIR, "ipl-dataset-2008-to-2025/players-data-updated.csv")
 ipl_ball_by_ball_path = os.path.join(ROOT_DIR, "ipl-dataset-2008-to-2025/ball_by_ball_data.csv")
@@ -86,10 +87,25 @@ def process_players_mapping():
 
     return players_map
 
+def process_team_names():
+    ipl_teams_alias_df = pd.read_csv(ipl_teams_alias_path)
+    teams_df = pd.read_csv(ipl_teams_path)
+
+    ipl_teams_alias_df = ipl_teams_alias_df.merge(
+        teams_df[['team_id', 'team_name']],
+        on='team_id',
+        how='left'
+    )
+
+    return ipl_teams_alias_df
+
+
 # Use the function to export the data when needed
 ipl_ball_by_ball_data = process_ball_by_ball_data()
 
 players_mapping = process_players_mapping()
+
+teams_mapping = process_team_names()
 
 # For exporting processed data to use in other files
 def get_ball_by_ball_data():
@@ -106,3 +122,11 @@ def get_player_name(user_input):
             raise AmbiguousPlayerNameError(f"Multiple players found for '{key}': {matches}. Please search with full name")
     else:
         raise NoPlayerFoundError(f"No players found with name '{key}': Please try another keyword")
+
+def get_team_name(user_input):
+    alias_input_lower = user_input.lower()
+    
+    match = teams_mapping[teams_mapping['alias_name'].str.lower() == alias_input_lower]
+    if not match.empty:
+        return match.iloc[0]['team_name']
+    return None  # or raise an error or fallback to alias_input
