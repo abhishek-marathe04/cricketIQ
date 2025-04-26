@@ -20,6 +20,7 @@ Ask natural questions and get **instant insights** from IPL data – whether it'
 No filters, no dropdowns – just ask like you would to a cricket expert!
 
 _Currently supports IPL data only. More formats coming soon!_  
+_Try using sample prompts and modify them as per your need!_ 
 """)
 
 if "user_id" not in st.session_state:
