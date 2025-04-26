@@ -11,22 +11,24 @@ from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_te
 logger = get_logger()
 
 
-def show_batter_stats_vs_team(batter_name:str, opponent_team_name: str, city_name: Optional[str]):
+def show_batter_stats_vs_team(batter_name:str, opponent_team_name:  Optional[str], city_name: Optional[str]):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
     batter_name = get_player_name(batter_name)
     opposite_team = get_team_name(opponent_team_name)
 
     # Base filter: player vs team
     mask = (
-        (ipl_ball_by_ball_stats['batter'] == batter_name) &
-        (ipl_ball_by_ball_stats['team_bowling_name'] == opposite_team)
+        (ipl_ball_by_ball_stats['batter'] == batter_name) 
     )
+
+    if opponent_team_name:
+        mask &= (ipl_ball_by_ball_stats['team_bowling_name'] == opposite_team)
 
     # Optionally add city filter if city_name is provided
     if city_name:  # Ensure it's not None or empty
         mask &= (ipl_ball_by_ball_stats['city'] == city_name)
 
-    logger.info(f"Inside show_batter_stats_vs_bowler batter_name {batter_name} opponent_team_name {opponent_team_name} city_name {city_name}")
+    logger.info(f"Inside show_batter_stats_vs_team batter_name {batter_name} opponent_team_name {opponent_team_name} city_name {city_name}")
 
     player_stats_vs_particular_team = ipl_ball_by_ball_stats[mask]
 

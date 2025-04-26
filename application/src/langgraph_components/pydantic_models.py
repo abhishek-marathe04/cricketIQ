@@ -24,7 +24,7 @@ class BatterStatsAgainstBowlerArguments(BaseModel):
 
 class BatterStatsAgainstTeamArguments(BaseModel):
     batter_name: str
-    opponent_team_name: str
+    opponent_team_name: Optional[str] = None
     city_name: Optional[str] = None
 
 # Pydantic
