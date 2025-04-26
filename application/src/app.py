@@ -33,6 +33,8 @@ sample_prompts = {
     'Fetch Player stats vs bowler type': '"How does Rohit Sharma fare against pacers?"',
     'Fetch Batter stats vs bowler': '"How has Virat Kohli played against Bumrah?"',
     'Fetch Batter stats vs Team': '"Shubman Gill’s record vs MI, especially in Mumbai?"',
+    'Fetch Team vs Team Stats': '"MI vs Csk stats"',
+    "Particular Ipl Season Overview": "Ipl 2024 Overview"
 }
 
 with st.expander("📋 Show Sample Prompts"):

@@ -1,5 +1,5 @@
 from langgraph_components.pydantic_models import AppState
-from langgraph_components.nodes import parse_query_node, run_batter_stats_vs_bowler, run_batter_stats_vs_team, run_player_stats_per_season, run_player_stats_vs_bowler_type
+from langgraph_components.nodes import parse_query_node, run_batter_stats_vs_bowler, run_batter_stats_vs_team, run_player_stats_per_season, run_player_stats_vs_bowler_type, run_season_overview, run_team_vs_team_stats
 from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnableLambda
 from utils.logger import get_logger
@@ -17,6 +17,10 @@ def router(state):
         return "batter_stats_vs_bowler"
     if state["intent"] == "batter_stats_vs_team":
         return "batter_stats_vs_team"
+    if state["intent"] == "team_vs_team_stats":
+        return "team_vs_team_stats"
+    if state["intent"] == "season_overview":
+        return "season_overview"
     return END
 
 
@@ -27,6 +31,8 @@ builder.add_node("player_stats_per_season", RunnableLambda(run_player_stats_per_
 builder.add_node("player_stats_vs_bowler_type", RunnableLambda(run_player_stats_vs_bowler_type))
 builder.add_node("batter_stats_vs_bowler", RunnableLambda(run_batter_stats_vs_bowler))
 builder.add_node("batter_stats_vs_team", RunnableLambda(run_batter_stats_vs_team))
+builder.add_node("team_vs_team_stats", RunnableLambda(run_team_vs_team_stats))
+builder.add_node("season_overview", RunnableLambda(run_season_overview))
 
 builder.set_entry_point("llm_parser")
 builder.add_conditional_edges(
@@ -37,6 +43,8 @@ builder.add_conditional_edges(
         "player_stats_vs_bowler_type": "player_stats_vs_bowler_type",
         "batter_stats_vs_bowler": "batter_stats_vs_bowler",
         "batter_stats_vs_team": "batter_stats_vs_team",
+        "team_vs_team_stats": "team_vs_team_stats",
+        "season_overview": "season_overview",
         "__end__": END
     }
 )

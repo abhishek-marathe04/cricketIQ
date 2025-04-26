@@ -27,6 +27,13 @@ class BatterStatsAgainstTeamArguments(BaseModel):
     opponent_team_name: Optional[str] = None
     city_name: Optional[str] = None
 
+
+class TeamVsTeamArguments(BaseModel):
+    team1_name: str
+    team2_name: str
+
+class SeasonOverview(BaseModel):
+    season: int
 # Pydantic
 class ParseIntentAndArguments(BaseModel):
     """Parsing intent and User arguments"""
@@ -36,5 +43,7 @@ class ParseIntentAndArguments(BaseModel):
         PlyaerStatsInSeasonArguments,
         PlayerStatsAgainstBowlerTypeArguments,
         BatterStatsAgainstBowlerArguments,
-        BatterStatsAgainstTeamArguments
+        BatterStatsAgainstTeamArguments,
+        TeamVsTeamArguments,
+        SeasonOverview
     ]

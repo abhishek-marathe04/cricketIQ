@@ -1,6 +1,6 @@
 import os
 from pydantic import ValidationError
-from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_stats_vs_team, call_player_stats_per_season, call_player_stats_vs_bowler_type
+from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_stats_vs_team, call_player_stats_per_season, call_player_stats_vs_bowler_type, call_season_overview, call_team_vs_team_stats
 from langgraph_components.pydantic_models import ParseIntentAndArguments
 from utils.utilities import extract_json_from_response
 from utils.llm import get_llm_client, get_model_name
@@ -100,4 +100,24 @@ def run_batter_stats_vs_team(state):
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
     tool_args = state["args"]
     table, graph = call_batter_stats_vs_team.invoke(tool_args)
+    return {**state, "result": {'table': table, 'graph': graph}}
+
+def run_team_vs_team_stats(state):
+    logger.info(f'run_team_vs_team_stats: {state}')
+    name = 'run_team_vs_team_stats'
+    function_call_counts[name] = function_call_counts.get(name, 0) + 1
+    
+    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
+    tool_args = state["args"]
+    table, graph = call_team_vs_team_stats.invoke(tool_args)
+    return {**state, "result": {'table': table, 'graph': graph}}
+
+def run_season_overview(state):
+    logger.info(f'run_season_overview: {state}')
+    name = 'run_season_overview'
+    function_call_counts[name] = function_call_counts.get(name, 0) + 1
+    
+    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
+    tool_args = state["args"]
+    table, graph = call_season_overview.invoke(tool_args)
     return {**state, "result": {'table': table, 'graph': graph}}

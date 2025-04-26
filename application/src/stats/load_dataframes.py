@@ -64,6 +64,35 @@ def process_ball_by_ball_data():
     # Returning combined and processed DataFrame
     return ball_by_ball_df
 
+
+def process_matches_data():
+
+    teams_df, matches_df, ball_by_ball_df = load_data()
+
+    matches_data = matches_df.merge(
+        teams_df[['team_id', 'team_name']],
+        left_on='team1',
+        right_on='team_id',
+        how='left'
+    ).rename(columns={'team_name': 'team1_name'}).drop(columns='team_id')
+
+    matches_data = matches_data.merge(
+        teams_df[['team_id', 'team_name']],
+        left_on='team2',
+        right_on='team_id',
+        how='left'
+    ).rename(columns={'team_name': 'team2_name'}).drop(columns='team_id')
+
+    matches_data = matches_data.merge(
+        teams_df[['team_id', 'team_name']],
+        left_on='match_winner',
+        right_on='team_id',
+        how='left'
+    ).rename(columns={'team_name': 'match_winner_name'}).drop(columns='team_id')
+
+    return matches_data
+
+
 def process_players_mapping():
     players_map = defaultdict(list)
     players_df = pd.read_csv(ipl_players_path)
@@ -107,9 +136,14 @@ players_mapping = process_players_mapping()
 
 teams_mapping = process_team_names()
 
+ipl_matches_data = process_matches_data()
+
 # For exporting processed data to use in other files
 def get_ball_by_ball_data():
     return ipl_ball_by_ball_data
+
+def get_matches_data():
+    return ipl_matches_data
 
 def get_player_name(user_input):
     key = user_input.strip().lower()
