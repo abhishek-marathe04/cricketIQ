@@ -32,6 +32,6 @@ def season_overview(season_id:int):
         cell_values=[top_5_batters['batter'], top_5_batters['total_runs'], top_5_batters['strike_rate']],
         title="Top 5 Batters by Strike Rate and Runs"
     )
-    run_rate = run_rate_per_phase(season_stats, 'team_batting_name', 'Run Rate per Phase in 2024 Season')
-    run_rate_concedded = run_rate_per_phase(season_stats, 'team_bowling_name', 'Run Rate Concedded per Phase in 2024 Season')
+    run_rate = run_rate_per_phase(season_stats, 'team_batting_name', f"Run Rate per Phase in {season_id} Season")
+    run_rate_concedded = run_rate_per_phase(season_stats, 'team_bowling_name', f"Run Rate Concedded per Phase in {season_id} Season")
     return table, [run_rate, run_rate_concedded]
