@@ -15,12 +15,15 @@ inject_analytics_script()
 st.title("🏏 CricketIQ Chat")
 
 st.markdown("""
-Welcome to **CricketIQ Chat** – your AI-powered cricket companion!  
-Ask natural questions and get **instant insights** from IPL data – whether it's player performance, team matchups, or head-to-head stats.  
-No filters, no dropdowns – just ask like you would to a cricket expert!
+Welcome to **CricketIQ** – your AI-powered cricket stats companion! 🏏  
+This app helps you get **historical IPL stats** through simple natural language queries — like player performances, team matchups, and head-to-head numbers.
 
-_Currently supports IPL data only. More formats coming soon!_  
-_Try using sample prompts and modify them as per your need!_ 
+⚡ **Important:**  
+- CricketIQ is designed **only for historical stats generation**, not for predictions or text-based answers.  
+- Please **follow sample prompts** and modify them slightly if needed — only limited types of queries are currently supported.  
+- Example prompts include: _"Show stats of Virat Kohli in 2024"_ or _"How has Rohit Sharma performed against fast bowlers?"_
+
+_Data currently supports IPL matches. More formats coming soon!_  
 """)
 
 if "user_id" not in st.session_state:
