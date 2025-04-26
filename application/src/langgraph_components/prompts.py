@@ -4,10 +4,9 @@ prompt_template = """
     Only give response based on User's Query, Dont give any other examples.
     For season, If User asks for season as IPL 2024, you need to only return year 2024 as season
     Available functions:
-    - player_stats_in_season(player_name, season)
     - player_stats_vs_bowler_type(player_name, bowler_type)
     - batter_stats_vs_bowler(batter_name, bowler_name)
-    - batter_stats_vs_team(batter_name, opponent_team_name, city_name)
+    - batter_stats(batter_name, opponent_team_name, city_name, season)
     - team_vs_team_stats(team1_name, team2_name)
     - season_overview(season)
 

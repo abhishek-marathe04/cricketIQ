@@ -11,10 +11,10 @@ from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_te
 logger = get_logger()
 
 
-def show_batter_stats_vs_team(batter_name:str, opponent_team_name:  Optional[str], city_name: Optional[str]):
+def show_batter_stats(batter_name:str, opponent_team_name:  Optional[str], city_name: Optional[str], season: Optional[int]):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
-    batter_name = get_player_name(batter_name)
-    opposite_team = get_team_name(opponent_team_name)
+    batter_name = get_player_name(batter_name) if batter_name else None
+    opposite_team = get_team_name(opponent_team_name) if opponent_team_name else None
 
     # Base filter: player vs team
     mask = (
@@ -28,7 +28,10 @@ def show_batter_stats_vs_team(batter_name:str, opponent_team_name:  Optional[str
     if city_name:  # Ensure it's not None or empty
         mask &= (ipl_ball_by_ball_stats['city'] == city_name)
 
-    logger.info(f"Inside show_batter_stats_vs_team batter_name {batter_name} opponent_team_name {opponent_team_name} city_name {city_name}")
+    if season:
+        mask &= (ipl_ball_by_ball_stats['season_id'] == season)
+
+    logger.info(f"Inside show_batter_stats batter_name {batter_name} opponent_team_name {opponent_team_name} city_name {city_name}")
 
     player_stats_vs_particular_team = ipl_ball_by_ball_stats[mask]
 

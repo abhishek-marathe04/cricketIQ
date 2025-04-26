@@ -22,10 +22,11 @@ class BatterStatsAgainstBowlerArguments(BaseModel):
     bowler_name: str
 
 
-class BatterStatsAgainstTeamArguments(BaseModel):
+class BatterStatsArguments(BaseModel):
     batter_name: str
     opponent_team_name: Optional[str] = None
     city_name: Optional[str] = None
+    season: Optional[int] = None
 
 
 class TeamVsTeamArguments(BaseModel):
@@ -40,10 +41,9 @@ class ParseIntentAndArguments(BaseModel):
 
     intent: str = Field(description="Intent of a user")
     arguments: Union[
-        PlyaerStatsInSeasonArguments,
         PlayerStatsAgainstBowlerTypeArguments,
         BatterStatsAgainstBowlerArguments,
-        BatterStatsAgainstTeamArguments,
+        BatterStatsArguments,
         TeamVsTeamArguments,
         SeasonOverview
     ]
