@@ -45,7 +45,7 @@ def parse_query_node(state):
         logger.info(f'parsed_json_model: {parsed_json_model}')
         response_to_return = {
             "intent": parsed_json_model.intent,
-            "args": parsed_json_model.arguments.model_dump()  # 👈 convert to plain dict
+            "args": parsed_json_model.arguments.model_dump() if parsed_json_model.arguments else None
         }
         return {**state, **response_to_return}
         # return response_to_return
@@ -55,41 +55,6 @@ def parse_query_node(state):
     except Exception as e:
         logger.error(f"Other error in parsing: {e}")
         return {"error": "Other parsing failure", "details": str(e)}
-
-
-def run_player_stats_per_season(state):
-    logger.info(f'run_player_stats: {state}')
-    tool_args = state["args"]
-    name = 'run_player_stats_per_season'
-    function_call_counts[name] = function_call_counts.get(name, 0) + 1
-    
-    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-    # result = call_player_stats.run(state["args"])  # try `.run()` instead of `.invoke()`
-    table, graph = call_player_stats_per_season.invoke(tool_args)
-    # result = 'Sample stats'
-    return {**state, "result": {'table': table, 'graph': graph}}
-
-
-def run_player_stats_vs_bowler_type(state):
-    logger.info(f'run_player_stats_vs_bowler_type: {state}')
-    name = 'run_player_stats_vs_bowler_type'
-    function_call_counts[name] = function_call_counts.get(name, 0) + 1
-    
-    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-    tool_args = state["args"]
-    table, graph = call_player_stats_vs_bowler_type.invoke(tool_args)
-    return {**state, "result": {'table': table, 'graph': graph}}
-
-
-# def run_batter_stats_vs_bowler(state):
-#     logger.info(f'run_batter_stats_vs_bowler: {state}')
-#     name = 'run_batter_stats_vs_bowler'
-#     function_call_counts[name] = function_call_counts.get(name, 0) + 1
-    
-#     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-#     tool_args = state["args"]
-#     table, graph = call_batter_stats_vs_bowler.invoke(tool_args)
-#     return {**state, "result": {'table': table, 'graph': graph}}
 
 
 def run_batter_stats(state):
@@ -112,12 +77,11 @@ def run_team_vs_team_stats(state):
     table, graph = call_team_vs_team_stats.invoke(tool_args)
     return {**state, "result": {'table': table, 'graph': graph}}
 
-def run_season_overview(state):
-    logger.info(f'run_season_overview: {state}')
-    name = 'run_season_overview'
+
+def out_of_scope_query(state):
+    logger.info(f'out_of_scope_query: {state}')
+    name = 'out_of_scope_query'
     function_call_counts[name] = function_call_counts.get(name, 0) + 1
     
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-    tool_args = state["args"]
-    table, graph = call_season_overview.invoke(tool_args)
-    return {**state, "result": {'table': table, 'graph': graph}}
+    return {**state, "message": "Sorry, this query is outside the scope of CricketIQ. Please ask about historical IPL stats only."}

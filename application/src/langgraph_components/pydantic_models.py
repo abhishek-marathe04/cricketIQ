@@ -42,9 +42,9 @@ class ParseIntentAndArguments(BaseModel):
     """Parsing intent and User arguments"""
 
     intent: str = Field(description="Intent of a user")
-    arguments: Union[
+    arguments: Optional[Union[
         PlayerStatsAgainstBowlerTypeArguments,
         BatterStatsArguments,
         TeamVsTeamArguments,
         SeasonOverview
-    ]
+    ]] = None

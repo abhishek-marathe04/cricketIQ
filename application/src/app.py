@@ -63,42 +63,48 @@ if st.button("Ask") and user_input:
         st.markdown(f"### 🧠 Query")
         st.markdown(f"`{user_input}`")
         # track_user_event(user_input, "Sucess")
-        track_event(user_id, "Sucess", {"query": user_input})
-        if isinstance(inner_result, dict) and "table" in inner_result and "graph" in inner_result:
-            st.markdown("### 📊 Summary Table")
-            st.plotly_chart(inner_result["table"])
-
-            # st.markdown("### 📈 Graph")
-            # st.plotly_chart(inner_result["graph"])
-            graphs = inner_result["graph"]
-
-            if isinstance(graphs, list):
-                st.markdown("### 📊 Visualizations")
-                for i, fig in enumerate(graphs):
-                    st.plotly_chart(fig, use_container_width=True)
-            else:
-                # Single graph fallback
-                st.plotly_chart(graphs)
+        # Check if LLM detected an out-of-scope query
+        if isinstance(inner_result, dict) and result.get("intent") == "out_of_scope_query":
+            track_event(user_id, "Out of scope Question", {"user_input": str(user_input)})
+            st.error("🚫 Sorry, this query is outside the scope of CricketIQ. Please ask about historical IPL stats only.")
         else:
-            error_msg = "⚠️ No valid 'table' or 'graph' returned from the model."
-            # track_error_event(error_msg, context="Rendering Graph/Table")
-            track_event(user_id, "Error Occurred", {"error": str(error_msg)})
-            st.error(error_msg)
+
+            if isinstance(inner_result, dict) and "table" in inner_result and "graph" in inner_result:
+                st.markdown("### 📊 Summary Table")
+                st.plotly_chart(inner_result["table"])
+
+                track_event(user_id, "Sucess", {"query": user_input})
+                # st.markdown("### 📈 Graph")
+                # st.plotly_chart(inner_result["graph"])
+                graphs = inner_result["graph"]
+
+                if isinstance(graphs, list):
+                    st.markdown("### 📊 Visualizations")
+                    for i, fig in enumerate(graphs):
+                        st.plotly_chart(fig, use_container_width=True)
+                else:
+                    # Single graph fallback
+                    st.plotly_chart(graphs)
+            else:
+                error_msg = "⚠️ No valid 'table' or 'graph' returned from the model."
+                # track_error_event(error_msg, context="Rendering Graph/Table")
+                track_event(user_id, "No Valid graph or Table", {"error": str(error_msg)})
+                st.error(error_msg)
     except NoPlayerFoundError as e:
         error_msg = str(e)
         st.warning(error_msg)  # Show a yellow warning box
         logger.error(error_msg)
         # track_error_event(error_msg, context="Bad User Query")
-        track_event(user_id, "Error Occurred", {"error": str(e)})
+        track_event(user_id, "No Player Error Occurred", {"error": str(e)})
     except AmbiguousPlayerNameError as e:
         error_msg = str(e)
         st.warning(error_msg)  # Show a yellow warning box
         logger.error(error_msg)
         # track_error_event(error_msg, context="Bad User Query")
-        track_event(user_id, "Error Occurred", {"error": str(e)})
+        track_event(user_id, "Multiple Player Error Occurred", {"error": str(e)})
     except Exception as e:
         st.error("Oops! Something went wrong.")
         error_msg = str(e)
         logger.error(error_msg, exc_info=True)
         # track_error_event(error_msg, context="Generating LLM response")
-        track_event(user_id, "Error Occurred", {"error": str(e)})
+        track_event(user_id, "Generic Error Occurred", {"error": str(e)})
