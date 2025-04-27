@@ -27,6 +27,8 @@ class BatterStatsArguments(BaseModel):
     opponent_team_name: Optional[str] = None
     city_name: Optional[str] = None
     season: Optional[int] = None
+    bowler_name: Optional[str] = None
+    bowler_type: Optional[str] = None
 
 
 class TeamVsTeamArguments(BaseModel):
@@ -42,7 +44,6 @@ class ParseIntentAndArguments(BaseModel):
     intent: str = Field(description="Intent of a user")
     arguments: Union[
         PlayerStatsAgainstBowlerTypeArguments,
-        BatterStatsAgainstBowlerArguments,
         BatterStatsArguments,
         TeamVsTeamArguments,
         SeasonOverview

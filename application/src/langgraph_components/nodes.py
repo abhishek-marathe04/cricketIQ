@@ -81,15 +81,15 @@ def run_player_stats_vs_bowler_type(state):
     return {**state, "result": {'table': table, 'graph': graph}}
 
 
-def run_batter_stats_vs_bowler(state):
-    logger.info(f'run_batter_stats_vs_bowler: {state}')
-    name = 'run_batter_stats_vs_bowler'
-    function_call_counts[name] = function_call_counts.get(name, 0) + 1
+# def run_batter_stats_vs_bowler(state):
+#     logger.info(f'run_batter_stats_vs_bowler: {state}')
+#     name = 'run_batter_stats_vs_bowler'
+#     function_call_counts[name] = function_call_counts.get(name, 0) + 1
     
-    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-    tool_args = state["args"]
-    table, graph = call_batter_stats_vs_bowler.invoke(tool_args)
-    return {**state, "result": {'table': table, 'graph': graph}}
+#     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
+#     tool_args = state["args"]
+#     table, graph = call_batter_stats_vs_bowler.invoke(tool_args)
+#     return {**state, "result": {'table': table, 'graph': graph}}
 
 
 def run_batter_stats(state):

@@ -35,8 +35,8 @@ def call_batter_stats_vs_bowler(batter_name: str, bowler_name: str):
 
 # Tool (could also be agent tool)
 @tool(description="Fetches Batter stats data")
-def call_batter_stats(batter_name: str, opponent_team_name: Optional[str], city_name: Optional[str], season: Optional[int]):
-    table, graph = show_batter_stats(batter_name=batter_name, opponent_team_name=opponent_team_name, city_name=city_name, season=season)
+def call_batter_stats(batter_name: str, opponent_team_name: Optional[str], city_name: Optional[str], season: Optional[int], bowler_name: Optional[str], bowler_type: Optional[str]):
+    table, graph = show_batter_stats(batter_name=batter_name, opponent_team_name=opponent_team_name, city_name=city_name, season=season, bowler_name=bowler_name, bowler_type=bowler_type)
     logger.info(f'Inside Fetches Batter stats data  : {table}')
     return table, graph # placeholder
 

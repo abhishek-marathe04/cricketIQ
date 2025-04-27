@@ -62,3 +62,19 @@ def show_runs_per_season(df):
         y='batter_runs',
         title='Runs Per Season',
     )
+
+
+def show_runs(df, group_by_field, group_by_title):
+    df_per_season = (
+        df
+        .groupby([group_by_field])['batter_runs']
+        .sum()
+        .reset_index()
+    )
+    
+    return show_line_graph(
+        df=df_per_season,
+        x=group_by_field,
+        y='batter_runs',
+        title=f'Runs Per {group_by_title}',
+    )
