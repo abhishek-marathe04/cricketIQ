@@ -55,6 +55,68 @@ startup.sh                        # Startup script
 - Developed common reusable Python functions to generate different types of stats (player, team, head-to-head, etc.).
 - These reusable functions are used throughout the app to ensure consistency and reduce duplication.
 
+## 🚀 Starting the App
+
+### 1. Python Environment Setup
+
+The project uses **pipenv** with Python 3.10 (see `Pipfile`). If you don't have pipenv:
+
+```bash
+pip install pipenv
+```
+
+Install dependencies and activate the environment:
+
+```bash
+pipenv install       # installs all dependencies from Pipfile
+pipenv shell         # activates the virtual environment
+```
+
+> **Alternative (plain venv):** If you prefer not to use pipenv:
+> ```bash
+> python3.10 -m venv .venv
+> source .venv/bin/activate
+> pip install -r requirements.txt
+> ```
+
+### 2. Set Up Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env   # if example exists, otherwise create manually
+```
+
+`.env` contents:
+
+```env
+TOGETHER_API_KEY=your_together_api_key_here
+POSTHOG_API_KEY=your_posthog_key_here        # optional, for analytics
+POSTHOG_HOST=your_posthog_host_here          # optional
+ENV=local                                     # set to "prod" for production
+GA_MEASUREMENT_ID=G-XXXXXXXXXX               # optional, for Google Analytics
+```
+
+> `TOGETHER_API_KEY` is required — it powers the LLM. Get one at [together.ai](https://www.together.ai).
+
+### 3. Start the Database
+
+```bash
+bash startup.sh
+```
+
+Make sure the database is populated before starting the app (see [Local Database Setup](#️-local-database-setup) below).
+
+### 4. Run the Streamlit App
+
+```bash
+streamlit run application/src/app.py
+```
+
+The app will open at `http://localhost:8501`.
+
+---
+
 ## 🗄️ Local Database Setup
 
 ### 1. Start PostgreSQL and pgAdmin via Docker
