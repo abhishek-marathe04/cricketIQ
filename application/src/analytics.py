@@ -43,8 +43,8 @@ def inject_analytics_script():
 
 def track_event(user_id, event_name, properties=None):
     """Function to track events with PostHog."""
-    posthog.capture(
-        distinct_id=user_id,  # You can use a user ID or session ID here
-        event=event_name,
-        properties=properties if properties else {}
-    )
+    # posthog.capture(
+    #     distinct_id=user_id,  # You can use a user ID or session ID here
+    #     event=event_name,
+    #     properties=properties if properties else {}
+    # )

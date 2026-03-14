@@ -19,6 +19,7 @@ langchain_community = "*"
 huggingface-hub = "*"
 together = "*"
 posthog = "*"
+pydantic = "*"
 
 [dev-packages]
 
