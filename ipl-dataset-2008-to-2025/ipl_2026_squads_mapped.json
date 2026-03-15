@@ -1,0 +1,1562 @@
+{
+  "Chennai Super Kings": {
+    "captain": "Ruturaj Gaikwad",
+    "home_ground": "MA Chidambaram Stadium, Chennai",
+    "players": [
+      {
+        "name": "Ruturaj Gaikwad",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "RD Gaikwad"
+      },
+      {
+        "name": "Ayush Mhatre",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "A Mhatre"
+      },
+      {
+        "name": "Sarfaraz Khan",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "SN Khan"
+      },
+      {
+        "name": "Dewald Brevis",
+        "specialisation": "Batter",
+        "nationality": "South Africa",
+        "dbName": "D Brevis"
+      },
+      {
+        "name": "Sanju Samson",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "SV Samson"
+      },
+      {
+        "name": "Kartik Sharma",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "KV Sharma"
+      },
+      {
+        "name": "MS Dhoni",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "MS Dhoni"
+      },
+      {
+        "name": "Urvil Patel",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Urvil Patel"
+      },
+      {
+        "name": "Shivam Dube",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "S Dube"
+      },
+      {
+        "name": "Prashant Veer",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "P Chopra"
+      },
+      {
+        "name": "Anshul Kamboj",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "A Kamboj"
+      },
+      {
+        "name": "Aman Khan",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Kamran Khan"
+      },
+      {
+        "name": "Matthew Short",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "DJM Short"
+      },
+      {
+        "name": "Jamie Overton",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "J Overton"
+      },
+      {
+        "name": "Zak Foulkes",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": null
+      },
+      {
+        "name": "Khaleel Ahmed",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "KK Ahmed"
+      },
+      {
+        "name": "Noor Ahmad",
+        "specialisation": "Bowler",
+        "nationality": "Afghanistan",
+        "dbName": "Noor Ahmad"
+      },
+      {
+        "name": "Rahul Chahar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "RD Chahar"
+      },
+      {
+        "name": "Mukesh Choudhary",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mukesh Choudhary"
+      },
+      {
+        "name": "Shreyas Gopal",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "S Gopal"
+      },
+      {
+        "name": "Gurjapneet Singh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Simarjeet Singh"
+      },
+      {
+        "name": "Ramkrishna Ghosh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "AN Ghosh"
+      },
+      {
+        "name": "Matt Henry",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": "MJ Henry"
+      },
+      {
+        "name": "Akeal Hosein",
+        "specialisation": "Bowler",
+        "nationality": "West Indies",
+        "dbName": "AJ Hosein"
+      },
+      {
+        "name": "Nathan Ellis",
+        "specialisation": "Bowler",
+        "nationality": "Australia",
+        "dbName": "NT Ellis"
+      }
+    ]
+  },
+  "Delhi Capitals": {
+    "captain": "Axar Patel",
+    "home_ground": "Arun Jaitley Stadium, Delhi",
+    "players": [
+      {
+        "name": "Axar Patel",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "AR Patel"
+      },
+      {
+        "name": "KL Rahul",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "KL Rahul"
+      },
+      {
+        "name": "Prithvi Shaw",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "PP Shaw"
+      },
+      {
+        "name": "Karun Nair",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "KK Nair"
+      },
+      {
+        "name": "Ashutosh Sharma",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Ashutosh Sharma"
+      },
+      {
+        "name": "Sameer Rizvi",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Sameer Rizvi"
+      },
+      {
+        "name": "Sahil Parakh",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "S Rana"
+      },
+      {
+        "name": "Ben Duckett",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "England",
+        "dbName": null
+      },
+      {
+        "name": "Tristan Stubbs",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "T Stubbs"
+      },
+      {
+        "name": "Pathum Nissanka",
+        "specialisation": "Batter",
+        "nationality": "Sri Lanka",
+        "dbName": null
+      },
+      {
+        "name": "David Miller",
+        "specialisation": "Batter",
+        "nationality": "South Africa",
+        "dbName": "DA Miller"
+      },
+      {
+        "name": "Abhishek Porel",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Abishek Porel"
+      },
+      {
+        "name": "Nitish Rana",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "N Rana"
+      },
+      {
+        "name": "Vipraj Nigam",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "V Nigam"
+      },
+      {
+        "name": "Madhav Tiwari",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "M Tiwari"
+      },
+      {
+        "name": "Tripurana Vijay",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "M Vijay"
+      },
+      {
+        "name": "Ajay Mandal",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Akash Madhwal"
+      },
+      {
+        "name": "Auqib Dar",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": null
+      },
+      {
+        "name": "Kuldeep Yadav",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Kuldeep Yadav"
+      },
+      {
+        "name": "T Natarajan",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "T Natarajan"
+      },
+      {
+        "name": "Mukesh Kumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mukesh Kumar"
+      },
+      {
+        "name": "Mitchell Starc",
+        "specialisation": "Bowler",
+        "nationality": "Australia",
+        "dbName": "MA Starc"
+      },
+      {
+        "name": "Lungi Ngidi",
+        "specialisation": "Bowler",
+        "nationality": "South Africa",
+        "dbName": "L Ngidi"
+      },
+      {
+        "name": "Kyle Jamieson",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": "KA Jamieson"
+      },
+      {
+        "name": "Dushmantha Chameera",
+        "specialisation": "Bowler",
+        "nationality": "Sri Lanka",
+        "dbName": "PVD Chameera"
+      }
+    ]
+  },
+  "Gujarat Titans": {
+    "captain": "Shubman Gill",
+    "home_ground": "Narendra Modi Stadium, Ahmedabad",
+    "players": [
+      {
+        "name": "Shubman Gill",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Shubman Gill"
+      },
+      {
+        "name": "Sai Sudharsan",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "B Sai Sudharsan"
+      },
+      {
+        "name": "Shahrukh Khan",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "M Shahrukh Khan"
+      },
+      {
+        "name": "Jos Buttler",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "England",
+        "dbName": "JC Buttler"
+      },
+      {
+        "name": "Anuj Rawat",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Anuj Rawat"
+      },
+      {
+        "name": "Kumar Khushagra",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Kumar Kushagra"
+      },
+      {
+        "name": "Tom Banton",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "England",
+        "dbName": "T Banton"
+      },
+      {
+        "name": "Washington Sundar",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Washington Sundar"
+      },
+      {
+        "name": "Rahul Tewatia",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "R Tewatia"
+      },
+      {
+        "name": "Jayant Yadav",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "J Yadav"
+      },
+      {
+        "name": "Nishant Sindhu",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "I Sharma"
+      },
+      {
+        "name": "Arshad Khan",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Arshad Khan"
+      },
+      {
+        "name": "Glenn Phillips",
+        "specialisation": "All-rounder",
+        "nationality": "New Zealand",
+        "dbName": "GD Phillips"
+      },
+      {
+        "name": "Jason Holder",
+        "specialisation": "All-rounder",
+        "nationality": "West Indies",
+        "dbName": "JO Holder"
+      },
+      {
+        "name": "Rashid Khan",
+        "specialisation": "Bowler",
+        "nationality": "Afghanistan",
+        "dbName": "Rashid Khan"
+      },
+      {
+        "name": "Mohammed Siraj",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mohammed Siraj"
+      },
+      {
+        "name": "Prasidh Krishna",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "M Prasidh Krishna"
+      },
+      {
+        "name": "Kagiso Rabada",
+        "specialisation": "Bowler",
+        "nationality": "South Africa",
+        "dbName": "K Rabada"
+      },
+      {
+        "name": "R Sai Kishore",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "R Sai Kishore"
+      },
+      {
+        "name": "Manav Suthar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "MJ Suthar"
+      },
+      {
+        "name": "Gurnoor Brar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Gurnoor Brar"
+      },
+      {
+        "name": "Ishant Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "I Sharma"
+      },
+      {
+        "name": "Prithviraj Yarra",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Y Prithvi Raj"
+      },
+      {
+        "name": "Ashok Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Abhishek Sharma"
+      },
+      {
+        "name": "Luke Wood",
+        "specialisation": "Bowler",
+        "nationality": "England",
+        "dbName": "L Wood"
+      }
+    ]
+  },
+  "Kolkata Knight Riders": {
+    "captain": "Ajinkya Rahane",
+    "home_ground": "Eden Gardens, Kolkata",
+    "players": [
+      {
+        "name": "Ajinkya Rahane",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "AM Rahane"
+      },
+      {
+        "name": "Angkrish Raghuvanshi",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "A Raghuvanshi"
+      },
+      {
+        "name": "Rinku Singh",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Pankaj Singh"
+      },
+      {
+        "name": "Manish Pandey",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "MK Pandey"
+      },
+      {
+        "name": "Rahul Tripathi",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "RA Tripathi"
+      },
+      {
+        "name": "Rovman Powell",
+        "specialisation": "Batter",
+        "nationality": "West Indies",
+        "dbName": "R Powell"
+      },
+      {
+        "name": "Finn Allen",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "New Zealand",
+        "dbName": "FA Allen"
+      },
+      {
+        "name": "Tim Seifert",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "New Zealand",
+        "dbName": "TL Seifert"
+      },
+      {
+        "name": "Tejasvi Singh",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Sanvir Singh"
+      },
+      {
+        "name": "Cameron Green",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "C Green"
+      },
+      {
+        "name": "Sunil Narine",
+        "specialisation": "All-rounder",
+        "nationality": "West Indies",
+        "dbName": "SP Narine"
+      },
+      {
+        "name": "Rachin Ravindra",
+        "specialisation": "All-rounder",
+        "nationality": "New Zealand",
+        "dbName": "R Ravindra"
+      },
+      {
+        "name": "Ramandeep Singh",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Ramandeep Singh"
+      },
+      {
+        "name": "Anukul Roy",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "AS Roy"
+      },
+      {
+        "name": "Daksh Kamra",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Mukesh Kumar"
+      },
+      {
+        "name": "Sarthak Ranjan",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Anand Rajan"
+      },
+      {
+        "name": "Varun Chakravarthy",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "CV Varun"
+      },
+      {
+        "name": "Harshit Rana",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Harshit Rana"
+      },
+      {
+        "name": "Akash Deep",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Akash Deep"
+      },
+      {
+        "name": "Matheesha Pathirana",
+        "specialisation": "Bowler",
+        "nationality": "Sri Lanka",
+        "dbName": "M Pathirana"
+      },
+      {
+        "name": "Vaibhav Arora",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "VG Arora"
+      },
+      {
+        "name": "Kartik Tyagi",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Kartik Tyagi"
+      },
+      {
+        "name": "Prashant Solanki",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "PH Solanki"
+      },
+      {
+        "name": "Umran Malik",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Umran Malik"
+      },
+      {
+        "name": "Blessing Muzarabani",
+        "specialisation": "Bowler",
+        "nationality": "Zimbabwe",
+        "dbName": null
+      }
+    ]
+  },
+  "Lucknow Super Giants": {
+    "captain": "Rishabh Pant",
+    "home_ground": "BRSABV Ekana Cricket Stadium, Lucknow",
+    "players": [
+      {
+        "name": "Rishabh Pant",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "RR Pant"
+      },
+      {
+        "name": "Ayush Badoni",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "A Badoni"
+      },
+      {
+        "name": "Himmat Singh",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Himmat Singh"
+      },
+      {
+        "name": "Aiden Markram",
+        "specialisation": "Batter",
+        "nationality": "South Africa",
+        "dbName": "AK Markram"
+      },
+      {
+        "name": "Matthew Breetzke",
+        "specialisation": "Batter",
+        "nationality": "South Africa",
+        "dbName": "MP Breetzke"
+      },
+      {
+        "name": "Akshat Raghuvanshi",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "A Raghuvanshi"
+      },
+      {
+        "name": "Nicholas Pooran",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "West Indies",
+        "dbName": "N Pooran"
+      },
+      {
+        "name": "Josh Inglis",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "Australia",
+        "dbName": "JP Inglis"
+      },
+      {
+        "name": "Mukul Choudhary",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Mukesh Choudhary"
+      },
+      {
+        "name": "Mitchell Marsh",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "MR Marsh"
+      },
+      {
+        "name": "Wanindu Hasaranga",
+        "specialisation": "All-rounder",
+        "nationality": "Sri Lanka",
+        "dbName": "PWH de Silva"
+      },
+      {
+        "name": "Shahbaz Ahmed",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Shahbaz Ahmed"
+      },
+      {
+        "name": "Arshin Kulkarni",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "AA Kulkarni"
+      },
+      {
+        "name": "Abdul Samad",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Abdul Samad"
+      },
+      {
+        "name": "Arjun Tendulkar",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Arjun Tendulkar"
+      },
+      {
+        "name": "Mohammed Shami",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mohammed Shami"
+      },
+      {
+        "name": "Mayank Yadav",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "MP Yadav"
+      },
+      {
+        "name": "Avesh Khan",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Avesh Khan"
+      },
+      {
+        "name": "Anrich Nortje",
+        "specialisation": "Bowler",
+        "nationality": "South Africa",
+        "dbName": "A Nortje"
+      },
+      {
+        "name": "Mohsin Khan",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mohsin Khan"
+      },
+      {
+        "name": "Akash Singh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Akash Singh"
+      },
+      {
+        "name": "Digvesh Singh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "DS Rathi"
+      },
+      {
+        "name": "Manimaran Siddharth",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "M Siddharth"
+      },
+      {
+        "name": "Naman Tiwari",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "M Tiwari"
+      },
+      {
+        "name": "Prince Yadav",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Prince Yadav"
+      }
+    ]
+  },
+  "Mumbai Indians": {
+    "captain": "Hardik Pandya",
+    "home_ground": "Wankhede Stadium, Mumbai",
+    "players": [
+      {
+        "name": "Rohit Sharma",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "R Sharma"
+      },
+      {
+        "name": "Suryakumar Yadav",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "SA Yadav"
+      },
+      {
+        "name": "Tilak Varma",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Tilak Varma"
+      },
+      {
+        "name": "Danish Melawar",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Akash Madhwal"
+      },
+      {
+        "name": "Sherfane Rutherford",
+        "specialisation": "Batter",
+        "nationality": "West Indies",
+        "dbName": "SE Rutherford"
+      },
+      {
+        "name": "Hardik Pandya",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "HH Pandya"
+      },
+      {
+        "name": "Quinton de Kock",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "Q de Kock"
+      },
+      {
+        "name": "Ryan Rickelton",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "RD Rickelton"
+      },
+      {
+        "name": "Robin Minz",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "R Minz"
+      },
+      {
+        "name": "Will Jacks",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "WG Jacks"
+      },
+      {
+        "name": "Mitchell Santner",
+        "specialisation": "All-rounder",
+        "nationality": "New Zealand",
+        "dbName": "MJ Santner"
+      },
+      {
+        "name": "Corbin Bosch",
+        "specialisation": "All-rounder",
+        "nationality": "South Africa",
+        "dbName": "C Bosch"
+      },
+      {
+        "name": "Naman Dhir",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Naman Dhir"
+      },
+      {
+        "name": "Raj Bawa",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "RA Bawa"
+      },
+      {
+        "name": "Atharva Ankolekar",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Atharva Taide"
+      },
+      {
+        "name": "Mayank Rawat",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Anuj Rawat"
+      },
+      {
+        "name": "Jasprit Bumrah",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "JJ Bumrah"
+      },
+      {
+        "name": "Trent Boult",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": "TA Boult"
+      },
+      {
+        "name": "Deepak Chahar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "DL Chahar"
+      },
+      {
+        "name": "Shardul Thakur",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "SN Thakur"
+      },
+      {
+        "name": "Allah Ghazanfar",
+        "specialisation": "Bowler",
+        "nationality": "Afghanistan",
+        "dbName": null
+      },
+      {
+        "name": "Ashwani Kumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Ashwani Kumar"
+      },
+      {
+        "name": "Mayank Markande",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "M Markande"
+      },
+      {
+        "name": "Mohammad Izhar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Mohammad Hafeez"
+      },
+      {
+        "name": "Raghu Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "R Sharma"
+      }
+    ]
+  },
+  "Punjab Kings": {
+    "captain": "Shreyas Iyer",
+    "home_ground": "Maharaja Yadavindra Singh Cricket Stadium, Mullanpur",
+    "players": [
+      {
+        "name": "Shreyas Iyer",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "SS Iyer"
+      },
+      {
+        "name": "Priyansh Arya",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Priyansh Arya"
+      },
+      {
+        "name": "Nehal Wadhera",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "N Wadhera"
+      },
+      {
+        "name": "Shashank Singh",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Shashank Singh"
+      },
+      {
+        "name": "Musheer Khan",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Musheer Khan"
+      },
+      {
+        "name": "Harnoor Pannu",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "M Jansen"
+      },
+      {
+        "name": "Pyla Avinash",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "P Amarnath"
+      },
+      {
+        "name": "Mitchell Owen",
+        "specialisation": "Batter",
+        "nationality": "Australia",
+        "dbName": "MJ Owen"
+      },
+      {
+        "name": "Prabsimran Singh",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "P Simran Singh"
+      },
+      {
+        "name": "Vishnu Vinod",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Vishnu Vinod"
+      },
+      {
+        "name": "Marcus Stoinis",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "MP Stoinis"
+      },
+      {
+        "name": "Marco Jansen",
+        "specialisation": "All-rounder",
+        "nationality": "South Africa",
+        "dbName": "M Jansen"
+      },
+      {
+        "name": "Cooper Connolly",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": null
+      },
+      {
+        "name": "Azmatullah Omarzai",
+        "specialisation": "All-rounder",
+        "nationality": "Afghanistan",
+        "dbName": "Azmatullah Omarzai"
+      },
+      {
+        "name": "Harpreet Brar",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Harpreet Brar"
+      },
+      {
+        "name": "Suryansh Shedge",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Suryansh Shedge"
+      },
+      {
+        "name": "Arshdeep Singh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Arshdeep Singh"
+      },
+      {
+        "name": "Yuzvendra Chahal",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "YS Chahal"
+      },
+      {
+        "name": "Lockie Ferguson",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": "LH Ferguson"
+      },
+      {
+        "name": "Xavier Bartlett",
+        "specialisation": "Bowler",
+        "nationality": "Australia",
+        "dbName": "XC Bartlett"
+      },
+      {
+        "name": "Ben Dwarshuis",
+        "specialisation": "Bowler",
+        "nationality": "Australia",
+        "dbName": "B Laughlin"
+      },
+      {
+        "name": "Vyshak Vijaykumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "DP Vijaykumar"
+      },
+      {
+        "name": "Yash Thakur",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Yash Thakur"
+      },
+      {
+        "name": "Pravin Dubey",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "P Dubey"
+      },
+      {
+        "name": "Vishal Nishad",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "TM Head"
+      }
+    ]
+  },
+  "Rajasthan Royals": {
+    "captain": "Riyan Parag",
+    "home_ground": "Sawai Mansingh Stadium, Jaipur",
+    "players": [
+      {
+        "name": "Yashasvi Jaiswal",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "YBK Jaiswal"
+      },
+      {
+        "name": "Vaibhav Suryavanshi",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "V Suryavanshi"
+      },
+      {
+        "name": "Shubham Dubey",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "SB Dubey"
+      },
+      {
+        "name": "Aman Rao",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Naman Dhir"
+      },
+      {
+        "name": "Shimron Hetmyer",
+        "specialisation": "Batter",
+        "nationality": "West Indies",
+        "dbName": "SO Hetmyer"
+      },
+      {
+        "name": "Riyan Parag",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "R Parag"
+      },
+      {
+        "name": "Ravindra Jadeja",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "RA Jadeja"
+      },
+      {
+        "name": "Sam Curran",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "SM Curran"
+      },
+      {
+        "name": "Dhruv Jurel",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Dhruv Jurel"
+      },
+      {
+        "name": "Ravi Singh",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Sanvir Singh"
+      },
+      {
+        "name": "Donovan Ferreira",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "D Ferreira"
+      },
+      {
+        "name": "Lhuan de Pretorius",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "D Pretorius"
+      },
+      {
+        "name": "Ravi Bishnoi",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Ravi Bishnoi"
+      },
+      {
+        "name": "Jofra Archer",
+        "specialisation": "Bowler",
+        "nationality": "England",
+        "dbName": "JC Archer"
+      },
+      {
+        "name": "Tushar Deshpande",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "TU Deshpande"
+      },
+      {
+        "name": "Sandeep Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Sandeep Sharma"
+      },
+      {
+        "name": "Adam Milne",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": "AF Milne"
+      },
+      {
+        "name": "Nandre Burger",
+        "specialisation": "Bowler",
+        "nationality": "South Africa",
+        "dbName": "N Burger"
+      },
+      {
+        "name": "Kwena Maphaka",
+        "specialisation": "Bowler",
+        "nationality": "South Africa",
+        "dbName": "KT Maphaka"
+      },
+      {
+        "name": "Sushant Mishra",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "A Mishra"
+      },
+      {
+        "name": "Kuldeep Sen",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "KR Sen"
+      },
+      {
+        "name": "Brijesh Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Abhishek Sharma"
+      },
+      {
+        "name": "Vignesh Puthur",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "V Puthur"
+      },
+      {
+        "name": "Yash Punja",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Yash Dayal"
+      },
+      {
+        "name": "Yudhvir Charak",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Yudhvir Singh"
+      }
+    ]
+  },
+  "Royal Challengers Bengaluru": {
+    "captain": "Rajat Patidar",
+    "home_ground": "M Chinnaswamy Stadium, Bengaluru",
+    "players": [
+      {
+        "name": "Virat Kohli",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "V Kohli"
+      },
+      {
+        "name": "Rajat Patidar",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "RM Patidar"
+      },
+      {
+        "name": "Devdutt Padikkal",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "D Padikkal"
+      },
+      {
+        "name": "Satvik Deswal",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": null
+      },
+      {
+        "name": "Tim David",
+        "specialisation": "Batter",
+        "nationality": "Singapore",
+        "dbName": "TH David"
+      },
+      {
+        "name": "Phil Salt",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "England",
+        "dbName": "PD Salt"
+      },
+      {
+        "name": "Jitesh Sharma",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "JM Sharma"
+      },
+      {
+        "name": "Jordan Cox",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "England",
+        "dbName": "J Botha"
+      },
+      {
+        "name": "Venkatesh Iyer",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "VR Iyer"
+      },
+      {
+        "name": "Krunal Pandya",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "KH Pandya"
+      },
+      {
+        "name": "Jacob Bethell",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "JG Bethell"
+      },
+      {
+        "name": "Romario Shepherd",
+        "specialisation": "All-rounder",
+        "nationality": "West Indies",
+        "dbName": "R Shepherd"
+      },
+      {
+        "name": "Swapnil Singh",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Swapnil Singh"
+      },
+      {
+        "name": "Vicky Ostwal",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": null
+      },
+      {
+        "name": "Mangesh Yadav",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "MP Yadav"
+      },
+      {
+        "name": "Kanishk Chouhan",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Mukesh Choudhary"
+      },
+      {
+        "name": "Vihaan Malhotra",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "I Malhotra"
+      },
+      {
+        "name": "Josh Hazlewood",
+        "specialisation": "Bowler",
+        "nationality": "Australia",
+        "dbName": "JR Hazlewood"
+      },
+      {
+        "name": "Bhuvneshwar Kumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "B Kumar"
+      },
+      {
+        "name": "Yash Dayal",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Yash Dayal"
+      },
+      {
+        "name": "Nuwan Thushara",
+        "specialisation": "Bowler",
+        "nationality": "Sri Lanka",
+        "dbName": "N Thushara"
+      },
+      {
+        "name": "Jacob Duffy",
+        "specialisation": "Bowler",
+        "nationality": "New Zealand",
+        "dbName": null
+      },
+      {
+        "name": "Rasikh Dar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Rasikh Salam"
+      },
+      {
+        "name": "Suyash Sharma",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Suyash Sharma"
+      },
+      {
+        "name": "Abhinandan Singh",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Harbhajan Singh"
+      }
+    ]
+  },
+  "Sunrisers Hyderabad": {
+    "captain": "Pat Cummins",
+    "home_ground": "Rajiv Gandhi International Stadium, Hyderabad",
+    "players": [
+      {
+        "name": "Travis Head",
+        "specialisation": "Batter",
+        "nationality": "Australia",
+        "dbName": "TM Head"
+      },
+      {
+        "name": "Abhishek Sharma",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Abhishek Sharma"
+      },
+      {
+        "name": "Aniket Verma",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "Aniket Verma"
+      },
+      {
+        "name": "R Smaran",
+        "specialisation": "Batter",
+        "nationality": "India",
+        "dbName": "R McLaren"
+      },
+      {
+        "name": "Pat Cummins",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "PJ Cummins"
+      },
+      {
+        "name": "Heinrich Klaasen",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "South Africa",
+        "dbName": "H Klaasen"
+      },
+      {
+        "name": "Ishan Kishan",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "Ishan Kishan"
+      },
+      {
+        "name": "Salil Arora",
+        "specialisation": "Wicketkeeper-Batter",
+        "nationality": "India",
+        "dbName": "VG Arora"
+      },
+      {
+        "name": "Nitish Kumar Reddy",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Nithish Kumar Reddy"
+      },
+      {
+        "name": "Kamindu Mendis",
+        "specialisation": "All-rounder",
+        "nationality": "Sri Lanka",
+        "dbName": "PHKD Mendis"
+      },
+      {
+        "name": "Liam Livingstone",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "LS Livingstone"
+      },
+      {
+        "name": "Brydon Carse",
+        "specialisation": "All-rounder",
+        "nationality": "England",
+        "dbName": "R McLaren"
+      },
+      {
+        "name": "Jack Edwards",
+        "specialisation": "All-rounder",
+        "nationality": "Australia",
+        "dbName": "SE Marsh"
+      },
+      {
+        "name": "Harsh Dubey",
+        "specialisation": "All-rounder",
+        "nationality": "India",
+        "dbName": "Harsh Dubey"
+      },
+      {
+        "name": "Harshal Patel",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "HV Patel"
+      },
+      {
+        "name": "Jaydev Unadkat",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "JD Unadkat"
+      },
+      {
+        "name": "Shivam Mavi",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Shivam Mavi"
+      },
+      {
+        "name": "Eshan Malinga",
+        "specialisation": "Bowler",
+        "nationality": "Sri Lanka",
+        "dbName": "E Malinga"
+      },
+      {
+        "name": "Zeeshan Ansari",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Zeeshan Ansari"
+      },
+      {
+        "name": "Shivang Kumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Ashwani Kumar"
+      },
+      {
+        "name": "Sakib Hussain",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Shakib Al Hasan"
+      },
+      {
+        "name": "Onkar Tarmale",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Kamran Akmal"
+      },
+      {
+        "name": "Amit Kumar",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Sumit Kumar"
+      },
+      {
+        "name": "Praful Hinge",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": "Yashpal Singh"
+      },
+      {
+        "name": "Krains Fuletra",
+        "specialisation": "Bowler",
+        "nationality": "India",
+        "dbName": null
+      }
+    ]
+  }
+}
