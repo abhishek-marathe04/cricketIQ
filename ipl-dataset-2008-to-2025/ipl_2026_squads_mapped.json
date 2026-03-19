@@ -7,151 +7,176 @@
         "name": "Ruturaj Gaikwad",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "RD Gaikwad"
+        "dbName": "RD Gaikwad",
+        "probableXi": true
       },
       {
         "name": "Ayush Mhatre",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "A Mhatre"
+        "dbName": "A Mhatre",
+        "probableXi": true
       },
       {
         "name": "Sarfaraz Khan",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "SN Khan"
+        "dbName": "SN Khan",
+        "probableXi": false
       },
       {
         "name": "Dewald Brevis",
         "specialisation": "Batter",
         "nationality": "South Africa",
-        "dbName": "D Brevis"
+        "dbName": "D Brevis",
+        "probableXi": true
       },
       {
         "name": "Sanju Samson",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "SV Samson"
+        "dbName": "SV Samson",
+        "probableXi": true
       },
       {
         "name": "Kartik Sharma",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "KV Sharma"
+        "dbName": "KV Sharma",
+        "probableXi": true
       },
       {
         "name": "MS Dhoni",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "MS Dhoni"
+        "dbName": "MS Dhoni",
+        "probableXi": true
       },
       {
         "name": "Urvil Patel",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Urvil Patel"
+        "dbName": "Urvil Patel",
+        "probableXi": false
       },
       {
         "name": "Shivam Dube",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "S Dube"
+        "dbName": "S Dube",
+        "probableXi": true
       },
       {
         "name": "Prashant Veer",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "P Chopra"
+        "dbName": "P Chopra",
+        "probableXi": true
       },
       {
         "name": "Anshul Kamboj",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "A Kamboj"
+        "dbName": "A Kamboj",
+        "probableXi": false
       },
       {
         "name": "Aman Khan",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Kamran Khan"
+        "dbName": "Kamran Khan",
+        "probableXi": false
       },
       {
         "name": "Matthew Short",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "DJM Short"
+        "dbName": "DJM Short",
+        "probableXi": false
       },
       {
         "name": "Jamie Overton",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "J Overton"
+        "dbName": "J Overton",
+        "probableXi": false
       },
       {
         "name": "Zak Foulkes",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       },
       {
         "name": "Khaleel Ahmed",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "KK Ahmed"
+        "dbName": "KK Ahmed",
+        "probableXi": true
       },
       {
         "name": "Noor Ahmad",
         "specialisation": "Bowler",
         "nationality": "Afghanistan",
-        "dbName": "Noor Ahmad"
+        "dbName": "Noor Ahmad",
+        "probableXi": true
       },
       {
         "name": "Rahul Chahar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "RD Chahar"
+        "dbName": "RD Chahar",
+        "probableXi": true
       },
       {
         "name": "Mukesh Choudhary",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mukesh Choudhary"
+        "dbName": "Mukesh Choudhary",
+        "probableXi": false
       },
       {
         "name": "Shreyas Gopal",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "S Gopal"
+        "dbName": "S Gopal",
+        "probableXi": false
       },
       {
         "name": "Gurjapneet Singh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Simarjeet Singh"
+        "dbName": "Simarjeet Singh",
+        "probableXi": false
       },
       {
         "name": "Ramkrishna Ghosh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "AN Ghosh"
+        "dbName": "AN Ghosh",
+        "probableXi": false
       },
       {
         "name": "Matt Henry",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": "MJ Henry"
+        "dbName": "MJ Henry",
+        "probableXi": false
       },
       {
         "name": "Akeal Hosein",
         "specialisation": "Bowler",
         "nationality": "West Indies",
-        "dbName": "AJ Hosein"
+        "dbName": "AJ Hosein",
+        "probableXi": false
       },
       {
         "name": "Nathan Ellis",
         "specialisation": "Bowler",
         "nationality": "Australia",
-        "dbName": "NT Ellis"
+        "dbName": "NT Ellis",
+        "probableXi": true
       }
     ]
   },
@@ -163,151 +188,176 @@
         "name": "Axar Patel",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "AR Patel"
+        "dbName": "AR Patel",
+        "probableXi": true
       },
       {
         "name": "KL Rahul",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "KL Rahul"
+        "dbName": "KL Rahul",
+        "probableXi": true
       },
       {
         "name": "Prithvi Shaw",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "PP Shaw"
+        "dbName": "PP Shaw",
+        "probableXi": false
       },
       {
         "name": "Karun Nair",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "KK Nair"
+        "dbName": "KK Nair",
+        "probableXi": false
       },
       {
         "name": "Ashutosh Sharma",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Ashutosh Sharma"
+        "dbName": "Ashutosh Sharma",
+        "probableXi": true
       },
       {
         "name": "Sameer Rizvi",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Sameer Rizvi"
+        "dbName": "Sameer Rizvi",
+        "probableXi": false
       },
       {
         "name": "Sahil Parakh",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "S Rana"
+        "dbName": "S Rana",
+        "probableXi": false
       },
       {
         "name": "Ben Duckett",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       },
       {
         "name": "Tristan Stubbs",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "T Stubbs"
+        "dbName": "T Stubbs",
+        "probableXi": true
       },
       {
         "name": "Pathum Nissanka",
         "specialisation": "Batter",
         "nationality": "Sri Lanka",
-        "dbName": null
+        "dbName": null,
+        "probableXi": true
       },
       {
         "name": "David Miller",
         "specialisation": "Batter",
         "nationality": "South Africa",
-        "dbName": "DA Miller"
+        "dbName": "DA Miller",
+        "probableXi": true
       },
       {
         "name": "Abhishek Porel",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Abishek Porel"
+        "dbName": "Abishek Porel",
+        "probableXi": false
       },
       {
         "name": "Nitish Rana",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "N Rana"
+        "dbName": "N Rana",
+        "probableXi": true
       },
       {
         "name": "Vipraj Nigam",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "V Nigam"
+        "dbName": "V Nigam",
+        "probableXi": true
       },
       {
         "name": "Madhav Tiwari",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "M Tiwari"
+        "dbName": "M Tiwari",
+        "probableXi": false
       },
       {
         "name": "Tripurana Vijay",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "M Vijay"
+        "dbName": "M Vijay",
+        "probableXi": false
       },
       {
         "name": "Ajay Mandal",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Akash Madhwal"
+        "dbName": "Akash Madhwal",
+        "probableXi": false
       },
       {
         "name": "Auqib Dar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": null
+        "dbName": null,
+        "probableXi": true
       },
       {
         "name": "Kuldeep Yadav",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Kuldeep Yadav"
+        "dbName": "Kuldeep Yadav",
+        "probableXi": true
       },
       {
         "name": "T Natarajan",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "T Natarajan"
+        "dbName": "T Natarajan",
+        "probableXi": true
       },
       {
         "name": "Mukesh Kumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mukesh Kumar"
+        "dbName": "Mukesh Kumar",
+        "probableXi": false
       },
       {
         "name": "Mitchell Starc",
         "specialisation": "Bowler",
         "nationality": "Australia",
-        "dbName": "MA Starc"
+        "dbName": "MA Starc",
+        "probableXi": true
       },
       {
         "name": "Lungi Ngidi",
         "specialisation": "Bowler",
         "nationality": "South Africa",
-        "dbName": "L Ngidi"
+        "dbName": "L Ngidi",
+        "probableXi": false
       },
       {
         "name": "Kyle Jamieson",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": "KA Jamieson"
+        "dbName": "KA Jamieson",
+        "probableXi": false
       },
       {
         "name": "Dushmantha Chameera",
         "specialisation": "Bowler",
         "nationality": "Sri Lanka",
-        "dbName": "PVD Chameera"
+        "dbName": "PVD Chameera",
+        "probableXi": false
       }
     ]
   },
@@ -319,151 +369,176 @@
         "name": "Shubman Gill",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Shubman Gill"
+        "dbName": "Shubman Gill",
+        "probableXi": true
       },
       {
         "name": "Sai Sudharsan",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "B Sai Sudharsan"
+        "dbName": "B Sai Sudharsan",
+        "probableXi": true
       },
       {
         "name": "Shahrukh Khan",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "M Shahrukh Khan"
+        "dbName": "M Shahrukh Khan",
+        "probableXi": true
       },
       {
         "name": "Jos Buttler",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": "JC Buttler"
+        "dbName": "JC Buttler",
+        "probableXi": true
       },
       {
         "name": "Anuj Rawat",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Anuj Rawat"
+        "dbName": "Anuj Rawat",
+        "probableXi": false
       },
       {
         "name": "Kumar Khushagra",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Kumar Kushagra"
+        "dbName": "Kumar Kushagra",
+        "probableXi": false
       },
       {
         "name": "Tom Banton",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": "T Banton"
+        "dbName": "T Banton",
+        "probableXi": false
       },
       {
         "name": "Washington Sundar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Washington Sundar"
+        "dbName": "Washington Sundar",
+        "probableXi": true
       },
       {
         "name": "Rahul Tewatia",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "R Tewatia"
+        "dbName": "R Tewatia",
+        "probableXi": true
       },
       {
         "name": "Jayant Yadav",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "J Yadav"
+        "dbName": "J Yadav",
+        "probableXi": false
       },
       {
         "name": "Nishant Sindhu",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "I Sharma"
+        "dbName": "I Sharma",
+        "probableXi": false
       },
       {
         "name": "Arshad Khan",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Arshad Khan"
+        "dbName": "Arshad Khan",
+        "probableXi": false
       },
       {
         "name": "Glenn Phillips",
         "specialisation": "All-rounder",
         "nationality": "New Zealand",
-        "dbName": "GD Phillips"
+        "dbName": "GD Phillips",
+        "probableXi": true
       },
       {
         "name": "Jason Holder",
         "specialisation": "All-rounder",
         "nationality": "West Indies",
-        "dbName": "JO Holder"
+        "dbName": "JO Holder",
+        "probableXi": true
       },
       {
         "name": "Rashid Khan",
         "specialisation": "Bowler",
         "nationality": "Afghanistan",
-        "dbName": "Rashid Khan"
+        "dbName": "Rashid Khan",
+        "probableXi": true
       },
       {
         "name": "Mohammed Siraj",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mohammed Siraj"
+        "dbName": "Mohammed Siraj",
+        "probableXi": true
       },
       {
         "name": "Prasidh Krishna",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "M Prasidh Krishna"
+        "dbName": "M Prasidh Krishna",
+        "probableXi": true
       },
       {
         "name": "Kagiso Rabada",
         "specialisation": "Bowler",
         "nationality": "South Africa",
-        "dbName": "K Rabada"
+        "dbName": "K Rabada",
+        "probableXi": false
       },
       {
         "name": "R Sai Kishore",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "R Sai Kishore"
+        "dbName": "R Sai Kishore",
+        "probableXi": true
       },
       {
         "name": "Manav Suthar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "MJ Suthar"
+        "dbName": "MJ Suthar",
+        "probableXi": false
       },
       {
         "name": "Gurnoor Brar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Gurnoor Brar"
+        "dbName": "Gurnoor Brar",
+        "probableXi": false
       },
       {
         "name": "Ishant Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "I Sharma"
+        "dbName": "I Sharma",
+        "probableXi": false
       },
       {
         "name": "Prithviraj Yarra",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Y Prithvi Raj"
+        "dbName": "Y Prithvi Raj",
+        "probableXi": false
       },
       {
         "name": "Ashok Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Abhishek Sharma"
+        "dbName": "Abhishek Sharma",
+        "probableXi": false
       },
       {
         "name": "Luke Wood",
         "specialisation": "Bowler",
         "nationality": "England",
-        "dbName": "L Wood"
+        "dbName": "L Wood",
+        "probableXi": false
       }
     ]
   },
@@ -475,151 +550,176 @@
         "name": "Ajinkya Rahane",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "AM Rahane"
+        "dbName": "AM Rahane",
+        "probableXi": true
       },
       {
         "name": "Angkrish Raghuvanshi",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "A Raghuvanshi"
+        "dbName": "A Raghuvanshi",
+        "probableXi": true
       },
       {
         "name": "Rinku Singh",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Pankaj Singh"
+        "dbName": "Pankaj Singh",
+        "probableXi": true
       },
       {
         "name": "Manish Pandey",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "MK Pandey"
+        "dbName": "MK Pandey",
+        "probableXi": true
       },
       {
         "name": "Rahul Tripathi",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "RA Tripathi"
+        "dbName": "RA Tripathi",
+        "probableXi": false
       },
       {
         "name": "Rovman Powell",
         "specialisation": "Batter",
         "nationality": "West Indies",
-        "dbName": "R Powell"
+        "dbName": "R Powell",
+        "probableXi": false
       },
       {
         "name": "Finn Allen",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "New Zealand",
-        "dbName": "FA Allen"
+        "dbName": "FA Allen",
+        "probableXi": false
       },
       {
         "name": "Tim Seifert",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "New Zealand",
-        "dbName": "TL Seifert"
+        "dbName": "TL Seifert",
+        "probableXi": true
       },
       {
         "name": "Tejasvi Singh",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Sanvir Singh"
+        "dbName": "Sanvir Singh",
+        "probableXi": false
       },
       {
         "name": "Cameron Green",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "C Green"
+        "dbName": "C Green",
+        "probableXi": true
       },
       {
         "name": "Sunil Narine",
         "specialisation": "All-rounder",
         "nationality": "West Indies",
-        "dbName": "SP Narine"
+        "dbName": "SP Narine",
+        "probableXi": true
       },
       {
         "name": "Rachin Ravindra",
         "specialisation": "All-rounder",
         "nationality": "New Zealand",
-        "dbName": "R Ravindra"
+        "dbName": "R Ravindra",
+        "probableXi": false
       },
       {
         "name": "Ramandeep Singh",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Ramandeep Singh"
+        "dbName": "Ramandeep Singh",
+        "probableXi": true
       },
       {
         "name": "Anukul Roy",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "AS Roy"
+        "dbName": "AS Roy",
+        "probableXi": false
       },
       {
         "name": "Daksh Kamra",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Mukesh Kumar"
+        "dbName": "Mukesh Kumar",
+        "probableXi": false
       },
       {
         "name": "Sarthak Ranjan",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Anand Rajan"
+        "dbName": "Anand Rajan",
+        "probableXi": false
       },
       {
         "name": "Varun Chakravarthy",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "CV Varun"
+        "dbName": "CV Varun",
+        "probableXi": true
       },
       {
         "name": "Harshit Rana",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Harshit Rana"
+        "dbName": "Harshit Rana",
+        "probableXi": true
       },
       {
         "name": "Akash Deep",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Akash Deep"
+        "dbName": "Akash Deep",
+        "probableXi": false
       },
       {
         "name": "Matheesha Pathirana",
         "specialisation": "Bowler",
         "nationality": "Sri Lanka",
-        "dbName": "M Pathirana"
+        "dbName": "M Pathirana",
+        "probableXi": true
       },
       {
         "name": "Vaibhav Arora",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "VG Arora"
+        "dbName": "VG Arora",
+        "probableXi": true
       },
       {
         "name": "Kartik Tyagi",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Kartik Tyagi"
+        "dbName": "Kartik Tyagi",
+        "probableXi": false
       },
       {
         "name": "Prashant Solanki",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "PH Solanki"
+        "dbName": "PH Solanki",
+        "probableXi": false
       },
       {
         "name": "Umran Malik",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Umran Malik"
+        "dbName": "Umran Malik",
+        "probableXi": false
       },
       {
         "name": "Blessing Muzarabani",
         "specialisation": "Bowler",
         "nationality": "Zimbabwe",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       }
     ]
   },
@@ -631,151 +731,176 @@
         "name": "Rishabh Pant",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "RR Pant"
+        "dbName": "RR Pant",
+        "probableXi": true
       },
       {
         "name": "Ayush Badoni",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "A Badoni"
+        "dbName": "A Badoni",
+        "probableXi": true
       },
       {
         "name": "Himmat Singh",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Himmat Singh"
+        "dbName": "Himmat Singh",
+        "probableXi": false
       },
       {
         "name": "Aiden Markram",
         "specialisation": "Batter",
         "nationality": "South Africa",
-        "dbName": "AK Markram"
+        "dbName": "AK Markram",
+        "probableXi": true
       },
       {
         "name": "Matthew Breetzke",
         "specialisation": "Batter",
         "nationality": "South Africa",
-        "dbName": "MP Breetzke"
+        "dbName": "MP Breetzke",
+        "probableXi": false
       },
       {
         "name": "Akshat Raghuvanshi",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "A Raghuvanshi"
+        "dbName": "A Raghuvanshi",
+        "probableXi": false
       },
       {
         "name": "Nicholas Pooran",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "West Indies",
-        "dbName": "N Pooran"
+        "dbName": "N Pooran",
+        "probableXi": true
       },
       {
         "name": "Josh Inglis",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "Australia",
-        "dbName": "JP Inglis"
+        "dbName": "JP Inglis",
+        "probableXi": true
       },
       {
         "name": "Mukul Choudhary",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Mukesh Choudhary"
+        "dbName": "Mukesh Choudhary",
+        "probableXi": false
       },
       {
         "name": "Mitchell Marsh",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "MR Marsh"
+        "dbName": "MR Marsh",
+        "probableXi": true
       },
       {
         "name": "Wanindu Hasaranga",
         "specialisation": "All-rounder",
         "nationality": "Sri Lanka",
-        "dbName": "PWH de Silva"
+        "dbName": "PWH de Silva",
+        "probableXi": false
       },
       {
         "name": "Shahbaz Ahmed",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Shahbaz Ahmed"
+        "dbName": "Shahbaz Ahmed",
+        "probableXi": true
       },
       {
         "name": "Arshin Kulkarni",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "AA Kulkarni"
+        "dbName": "AA Kulkarni",
+        "probableXi": false
       },
       {
         "name": "Abdul Samad",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Abdul Samad"
+        "dbName": "Abdul Samad",
+        "probableXi": true
       },
       {
         "name": "Arjun Tendulkar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Arjun Tendulkar"
+        "dbName": "Arjun Tendulkar",
+        "probableXi": false
       },
       {
         "name": "Mohammed Shami",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mohammed Shami"
+        "dbName": "Mohammed Shami",
+        "probableXi": true
       },
       {
         "name": "Mayank Yadav",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "MP Yadav"
+        "dbName": "MP Yadav",
+        "probableXi": true
       },
       {
         "name": "Avesh Khan",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Avesh Khan"
+        "dbName": "Avesh Khan",
+        "probableXi": true
       },
       {
         "name": "Anrich Nortje",
         "specialisation": "Bowler",
         "nationality": "South Africa",
-        "dbName": "A Nortje"
+        "dbName": "A Nortje",
+        "probableXi": false
       },
       {
         "name": "Mohsin Khan",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mohsin Khan"
+        "dbName": "Mohsin Khan",
+        "probableXi": false
       },
       {
         "name": "Akash Singh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Akash Singh"
+        "dbName": "Akash Singh",
+        "probableXi": false
       },
       {
         "name": "Digvesh Singh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "DS Rathi"
+        "dbName": "DS Rathi",
+        "probableXi": true
       },
       {
         "name": "Manimaran Siddharth",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "M Siddharth"
+        "dbName": "M Siddharth",
+        "probableXi": false
       },
       {
         "name": "Naman Tiwari",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "M Tiwari"
+        "dbName": "M Tiwari",
+        "probableXi": false
       },
       {
         "name": "Prince Yadav",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Prince Yadav"
+        "dbName": "Prince Yadav",
+        "probableXi": false
       }
     ]
   },
@@ -787,151 +912,176 @@
         "name": "Rohit Sharma",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "R Sharma"
+        "dbName": "R Sharma",
+        "probableXi": true
       },
       {
         "name": "Suryakumar Yadav",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "SA Yadav"
+        "dbName": "SA Yadav",
+        "probableXi": true
       },
       {
         "name": "Tilak Varma",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Tilak Varma"
+        "dbName": "Tilak Varma",
+        "probableXi": true
       },
       {
         "name": "Danish Melawar",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Akash Madhwal"
+        "dbName": "Akash Madhwal",
+        "probableXi": false
       },
       {
         "name": "Sherfane Rutherford",
         "specialisation": "Batter",
         "nationality": "West Indies",
-        "dbName": "SE Rutherford"
+        "dbName": "SE Rutherford",
+        "probableXi": false
       },
       {
         "name": "Hardik Pandya",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "HH Pandya"
+        "dbName": "HH Pandya",
+        "probableXi": true
       },
       {
         "name": "Quinton de Kock",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "Q de Kock"
+        "dbName": "Q de Kock",
+        "probableXi": true
       },
       {
         "name": "Ryan Rickelton",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "RD Rickelton"
+        "dbName": "RD Rickelton",
+        "probableXi": false
       },
       {
         "name": "Robin Minz",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "R Minz"
+        "dbName": "R Minz",
+        "probableXi": false
       },
       {
         "name": "Will Jacks",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "WG Jacks"
+        "dbName": "WG Jacks",
+        "probableXi": true
       },
       {
         "name": "Mitchell Santner",
         "specialisation": "All-rounder",
         "nationality": "New Zealand",
-        "dbName": "MJ Santner"
+        "dbName": "MJ Santner",
+        "probableXi": true
       },
       {
         "name": "Corbin Bosch",
         "specialisation": "All-rounder",
         "nationality": "South Africa",
-        "dbName": "C Bosch"
+        "dbName": "C Bosch",
+        "probableXi": false
       },
       {
         "name": "Naman Dhir",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Naman Dhir"
+        "dbName": "Naman Dhir",
+        "probableXi": true
       },
       {
         "name": "Raj Bawa",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "RA Bawa"
+        "dbName": "RA Bawa",
+        "probableXi": false
       },
       {
         "name": "Atharva Ankolekar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Atharva Taide"
+        "dbName": "Atharva Taide",
+        "probableXi": false
       },
       {
         "name": "Mayank Rawat",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Anuj Rawat"
+        "dbName": "Anuj Rawat",
+        "probableXi": false
       },
       {
         "name": "Jasprit Bumrah",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "JJ Bumrah"
+        "dbName": "JJ Bumrah",
+        "probableXi": true
       },
       {
         "name": "Trent Boult",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": "TA Boult"
+        "dbName": "TA Boult",
+        "probableXi": true
       },
       {
         "name": "Deepak Chahar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "DL Chahar"
+        "dbName": "DL Chahar",
+        "probableXi": true
       },
       {
         "name": "Shardul Thakur",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "SN Thakur"
+        "dbName": "SN Thakur",
+        "probableXi": false
       },
       {
         "name": "Allah Ghazanfar",
         "specialisation": "Bowler",
         "nationality": "Afghanistan",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       },
       {
         "name": "Ashwani Kumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Ashwani Kumar"
+        "dbName": "Ashwani Kumar",
+        "probableXi": false
       },
       {
         "name": "Mayank Markande",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "M Markande"
+        "dbName": "M Markande",
+        "probableXi": true
       },
       {
         "name": "Mohammad Izhar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Mohammad Hafeez"
+        "dbName": "Mohammad Hafeez",
+        "probableXi": false
       },
       {
         "name": "Raghu Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "R Sharma"
+        "dbName": "R Sharma",
+        "probableXi": false
       }
     ]
   },
@@ -943,151 +1093,176 @@
         "name": "Shreyas Iyer",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "SS Iyer"
+        "dbName": "SS Iyer",
+        "probableXi": true
       },
       {
         "name": "Priyansh Arya",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Priyansh Arya"
+        "dbName": "Priyansh Arya",
+        "probableXi": true
       },
       {
         "name": "Nehal Wadhera",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "N Wadhera"
+        "dbName": "N Wadhera",
+        "probableXi": false
       },
       {
         "name": "Shashank Singh",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Shashank Singh"
+        "dbName": "Shashank Singh",
+        "probableXi": true
       },
       {
         "name": "Musheer Khan",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Musheer Khan"
+        "dbName": "Musheer Khan",
+        "probableXi": false
       },
       {
         "name": "Harnoor Pannu",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "M Jansen"
+        "dbName": "M Jansen",
+        "probableXi": false
       },
       {
         "name": "Pyla Avinash",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "P Amarnath"
+        "dbName": "P Amarnath",
+        "probableXi": false
       },
       {
         "name": "Mitchell Owen",
         "specialisation": "Batter",
         "nationality": "Australia",
-        "dbName": "MJ Owen"
+        "dbName": "MJ Owen",
+        "probableXi": false
       },
       {
         "name": "Prabsimran Singh",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "P Simran Singh"
+        "dbName": "P Simran Singh",
+        "probableXi": true
       },
       {
         "name": "Vishnu Vinod",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Vishnu Vinod"
+        "dbName": "Vishnu Vinod",
+        "probableXi": false
       },
       {
         "name": "Marcus Stoinis",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "MP Stoinis"
+        "dbName": "MP Stoinis",
+        "probableXi": true
       },
       {
         "name": "Marco Jansen",
         "specialisation": "All-rounder",
         "nationality": "South Africa",
-        "dbName": "M Jansen"
+        "dbName": "M Jansen",
+        "probableXi": true
       },
       {
         "name": "Cooper Connolly",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": null
+        "dbName": null,
+        "probableXi": true
       },
       {
         "name": "Azmatullah Omarzai",
         "specialisation": "All-rounder",
         "nationality": "Afghanistan",
-        "dbName": "Azmatullah Omarzai"
+        "dbName": "Azmatullah Omarzai",
+        "probableXi": true
       },
       {
         "name": "Harpreet Brar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Harpreet Brar"
+        "dbName": "Harpreet Brar",
+        "probableXi": true
       },
       {
         "name": "Suryansh Shedge",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Suryansh Shedge"
+        "dbName": "Suryansh Shedge",
+        "probableXi": false
       },
       {
         "name": "Arshdeep Singh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Arshdeep Singh"
+        "dbName": "Arshdeep Singh",
+        "probableXi": true
       },
       {
         "name": "Yuzvendra Chahal",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "YS Chahal"
+        "dbName": "YS Chahal",
+        "probableXi": true
       },
       {
         "name": "Lockie Ferguson",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": "LH Ferguson"
+        "dbName": "LH Ferguson",
+        "probableXi": false
       },
       {
         "name": "Xavier Bartlett",
         "specialisation": "Bowler",
         "nationality": "Australia",
-        "dbName": "XC Bartlett"
+        "dbName": "XC Bartlett",
+        "probableXi": false
       },
       {
         "name": "Ben Dwarshuis",
         "specialisation": "Bowler",
         "nationality": "Australia",
-        "dbName": "B Laughlin"
+        "dbName": "B Laughlin",
+        "probableXi": false
       },
       {
         "name": "Vyshak Vijaykumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "DP Vijaykumar"
+        "dbName": "DP Vijaykumar",
+        "probableXi": true
       },
       {
         "name": "Yash Thakur",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Yash Thakur"
+        "dbName": "Yash Thakur",
+        "probableXi": false
       },
       {
         "name": "Pravin Dubey",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "P Dubey"
+        "dbName": "P Dubey",
+        "probableXi": false
       },
       {
         "name": "Vishal Nishad",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "TM Head"
+        "dbName": "TM Head",
+        "probableXi": false
       }
     ]
   },
@@ -1099,151 +1274,176 @@
         "name": "Yashasvi Jaiswal",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "YBK Jaiswal"
+        "dbName": "YBK Jaiswal",
+        "probableXi": true
       },
       {
         "name": "Vaibhav Suryavanshi",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "V Suryavanshi"
+        "dbName": "V Suryavanshi",
+        "probableXi": true
       },
       {
         "name": "Shubham Dubey",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "SB Dubey"
+        "dbName": "SB Dubey",
+        "probableXi": false
       },
       {
         "name": "Aman Rao",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Naman Dhir"
+        "dbName": "Naman Dhir",
+        "probableXi": false
       },
       {
         "name": "Shimron Hetmyer",
         "specialisation": "Batter",
         "nationality": "West Indies",
-        "dbName": "SO Hetmyer"
+        "dbName": "SO Hetmyer",
+        "probableXi": true
       },
       {
         "name": "Riyan Parag",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "R Parag"
+        "dbName": "R Parag",
+        "probableXi": true
       },
       {
         "name": "Ravindra Jadeja",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "RA Jadeja"
+        "dbName": "RA Jadeja",
+        "probableXi": true
       },
       {
         "name": "Sam Curran",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "SM Curran"
+        "dbName": "SM Curran",
+        "probableXi": true
       },
       {
         "name": "Dhruv Jurel",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Dhruv Jurel"
+        "dbName": "Dhruv Jurel",
+        "probableXi": true
       },
       {
         "name": "Ravi Singh",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Sanvir Singh"
+        "dbName": "Sanvir Singh",
+        "probableXi": false
       },
       {
         "name": "Donovan Ferreira",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "D Ferreira"
+        "dbName": "D Ferreira",
+        "probableXi": false
       },
       {
         "name": "Lhuan de Pretorius",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "D Pretorius"
+        "dbName": "D Pretorius",
+        "probableXi": false
       },
       {
         "name": "Ravi Bishnoi",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Ravi Bishnoi"
+        "dbName": "Ravi Bishnoi",
+        "probableXi": true
       },
       {
         "name": "Jofra Archer",
         "specialisation": "Bowler",
         "nationality": "England",
-        "dbName": "JC Archer"
+        "dbName": "JC Archer",
+        "probableXi": true
       },
       {
         "name": "Tushar Deshpande",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "TU Deshpande"
+        "dbName": "TU Deshpande",
+        "probableXi": true
       },
       {
         "name": "Sandeep Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Sandeep Sharma"
+        "dbName": "Sandeep Sharma",
+        "probableXi": false
       },
       {
         "name": "Adam Milne",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": "AF Milne"
+        "dbName": "AF Milne",
+        "probableXi": false
       },
       {
         "name": "Nandre Burger",
         "specialisation": "Bowler",
         "nationality": "South Africa",
-        "dbName": "N Burger"
+        "dbName": "N Burger",
+        "probableXi": false
       },
       {
         "name": "Kwena Maphaka",
         "specialisation": "Bowler",
         "nationality": "South Africa",
-        "dbName": "KT Maphaka"
+        "dbName": "KT Maphaka",
+        "probableXi": false
       },
       {
         "name": "Sushant Mishra",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "A Mishra"
+        "dbName": "A Mishra",
+        "probableXi": false
       },
       {
         "name": "Kuldeep Sen",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "KR Sen"
+        "dbName": "KR Sen",
+        "probableXi": false
       },
       {
         "name": "Brijesh Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Abhishek Sharma"
+        "dbName": "Abhishek Sharma",
+        "probableXi": false
       },
       {
         "name": "Vignesh Puthur",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "V Puthur"
+        "dbName": "V Puthur",
+        "probableXi": false
       },
       {
         "name": "Yash Punja",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Yash Dayal"
+        "dbName": "Yash Dayal",
+        "probableXi": false
       },
       {
         "name": "Yudhvir Charak",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Yudhvir Singh"
+        "dbName": "Yudhvir Singh",
+        "probableXi": false
       }
     ]
   },
@@ -1255,151 +1455,176 @@
         "name": "Virat Kohli",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "V Kohli"
+        "dbName": "V Kohli",
+        "probableXi": true
       },
       {
         "name": "Rajat Patidar",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "RM Patidar"
+        "dbName": "RM Patidar",
+        "probableXi": true
       },
       {
         "name": "Devdutt Padikkal",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "D Padikkal"
+        "dbName": "D Padikkal",
+        "probableXi": false
       },
       {
         "name": "Satvik Deswal",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       },
       {
         "name": "Tim David",
         "specialisation": "Batter",
         "nationality": "Singapore",
-        "dbName": "TH David"
+        "dbName": "TH David",
+        "probableXi": true
       },
       {
         "name": "Phil Salt",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": "PD Salt"
+        "dbName": "PD Salt",
+        "probableXi": true
       },
       {
         "name": "Jitesh Sharma",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "JM Sharma"
+        "dbName": "JM Sharma",
+        "probableXi": true
       },
       {
         "name": "Jordan Cox",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": "J Botha"
+        "dbName": "J Botha",
+        "probableXi": false
       },
       {
         "name": "Venkatesh Iyer",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "VR Iyer"
+        "dbName": "VR Iyer",
+        "probableXi": true
       },
       {
         "name": "Krunal Pandya",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "KH Pandya"
+        "dbName": "KH Pandya",
+        "probableXi": true
       },
       {
         "name": "Jacob Bethell",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "JG Bethell"
+        "dbName": "JG Bethell",
+        "probableXi": false
       },
       {
         "name": "Romario Shepherd",
         "specialisation": "All-rounder",
         "nationality": "West Indies",
-        "dbName": "R Shepherd"
+        "dbName": "R Shepherd",
+        "probableXi": true
       },
       {
         "name": "Swapnil Singh",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Swapnil Singh"
+        "dbName": "Swapnil Singh",
+        "probableXi": false
       },
       {
         "name": "Vicky Ostwal",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       },
       {
         "name": "Mangesh Yadav",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "MP Yadav"
+        "dbName": "MP Yadav",
+        "probableXi": false
       },
       {
         "name": "Kanishk Chouhan",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Mukesh Choudhary"
+        "dbName": "Mukesh Choudhary",
+        "probableXi": false
       },
       {
         "name": "Vihaan Malhotra",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "I Malhotra"
+        "dbName": "I Malhotra",
+        "probableXi": false
       },
       {
         "name": "Josh Hazlewood",
         "specialisation": "Bowler",
         "nationality": "Australia",
-        "dbName": "JR Hazlewood"
+        "dbName": "JR Hazlewood",
+        "probableXi": false
       },
       {
         "name": "Bhuvneshwar Kumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "B Kumar"
+        "dbName": "B Kumar",
+        "probableXi": true
       },
       {
         "name": "Yash Dayal",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Yash Dayal"
+        "dbName": "Yash Dayal",
+        "probableXi": true
       },
       {
         "name": "Nuwan Thushara",
         "specialisation": "Bowler",
         "nationality": "Sri Lanka",
-        "dbName": "N Thushara"
+        "dbName": "N Thushara",
+        "probableXi": false
       },
       {
         "name": "Jacob Duffy",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": null
+        "dbName": null,
+        "probableXi": true
       },
       {
         "name": "Rasikh Dar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Rasikh Salam"
+        "dbName": "Rasikh Salam",
+        "probableXi": false
       },
       {
         "name": "Suyash Sharma",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Suyash Sharma"
+        "dbName": "Suyash Sharma",
+        "probableXi": true
       },
       {
         "name": "Abhinandan Singh",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Harbhajan Singh"
+        "dbName": "Harbhajan Singh",
+        "probableXi": false
       }
     ]
   },
@@ -1411,151 +1636,176 @@
         "name": "Travis Head",
         "specialisation": "Batter",
         "nationality": "Australia",
-        "dbName": "TM Head"
+        "dbName": "TM Head",
+        "probableXi": true
       },
       {
         "name": "Abhishek Sharma",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Abhishek Sharma"
+        "dbName": "Abhishek Sharma",
+        "probableXi": true
       },
       {
         "name": "Aniket Verma",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "Aniket Verma"
+        "dbName": "Aniket Verma",
+        "probableXi": true
       },
       {
         "name": "R Smaran",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": "R McLaren"
+        "dbName": "R McLaren",
+        "probableXi": false
       },
       {
         "name": "Pat Cummins",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "PJ Cummins"
+        "dbName": "PJ Cummins",
+        "probableXi": true
       },
       {
         "name": "Heinrich Klaasen",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "South Africa",
-        "dbName": "H Klaasen"
+        "dbName": "H Klaasen",
+        "probableXi": true
       },
       {
         "name": "Ishan Kishan",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "Ishan Kishan"
+        "dbName": "Ishan Kishan",
+        "probableXi": true
       },
       {
         "name": "Salil Arora",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "VG Arora"
+        "dbName": "VG Arora",
+        "probableXi": false
       },
       {
         "name": "Nitish Kumar Reddy",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Nithish Kumar Reddy"
+        "dbName": "Nithish Kumar Reddy",
+        "probableXi": true
       },
       {
         "name": "Kamindu Mendis",
         "specialisation": "All-rounder",
         "nationality": "Sri Lanka",
-        "dbName": "PHKD Mendis"
+        "dbName": "PHKD Mendis",
+        "probableXi": false
       },
       {
         "name": "Liam Livingstone",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "LS Livingstone"
+        "dbName": "LS Livingstone",
+        "probableXi": true
       },
       {
         "name": "Brydon Carse",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": "R McLaren"
+        "dbName": "R McLaren",
+        "probableXi": false
       },
       {
         "name": "Jack Edwards",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": "SE Marsh"
+        "dbName": "SE Marsh",
+        "probableXi": false
       },
       {
         "name": "Harsh Dubey",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "Harsh Dubey"
+        "dbName": "Harsh Dubey",
+        "probableXi": true
       },
       {
         "name": "Harshal Patel",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "HV Patel"
+        "dbName": "HV Patel",
+        "probableXi": true
       },
       {
         "name": "Jaydev Unadkat",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "JD Unadkat"
+        "dbName": "JD Unadkat",
+        "probableXi": true
       },
       {
         "name": "Shivam Mavi",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Shivam Mavi"
+        "dbName": "Shivam Mavi",
+        "probableXi": true
       },
       {
         "name": "Eshan Malinga",
         "specialisation": "Bowler",
         "nationality": "Sri Lanka",
-        "dbName": "E Malinga"
+        "dbName": "E Malinga",
+        "probableXi": false
       },
       {
         "name": "Zeeshan Ansari",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Zeeshan Ansari"
+        "dbName": "Zeeshan Ansari",
+        "probableXi": false
       },
       {
         "name": "Shivang Kumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Ashwani Kumar"
+        "dbName": "Ashwani Kumar",
+        "probableXi": false
       },
       {
         "name": "Sakib Hussain",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Shakib Al Hasan"
+        "dbName": "Shakib Al Hasan",
+        "probableXi": false
       },
       {
         "name": "Onkar Tarmale",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Kamran Akmal"
+        "dbName": "Kamran Akmal",
+        "probableXi": false
       },
       {
         "name": "Amit Kumar",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Sumit Kumar"
+        "dbName": "Sumit Kumar",
+        "probableXi": false
       },
       {
         "name": "Praful Hinge",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": "Yashpal Singh"
+        "dbName": "Yashpal Singh",
+        "probableXi": false
       },
       {
         "name": "Krains Fuletra",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": null
+        "dbName": null,
+        "probableXi": false
       }
     ]
   }
