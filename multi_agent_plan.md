@@ -19,34 +19,35 @@ You're not building from scratch — you're building a **scoring + selection lay
 ## Proposed Multi-Agent Architecture
 
 ```
-Input: 22 players (tagged: batter/bowler/allrounder) + Venue + Match Date
+Input: 24 players (from team_selector.py) + Venue + Match Date
                           │
                 ┌─────────▼──────────┐
-                │  Orchestrator Agent │  ← LangGraph entry
-                │  (plans + fans out) │
+                │  Orchestrator      │  ← LangGraph entry
+                │  pure Python/code  │  ← NO LLM — fixed, deterministic flow
                 └──────────┬─────────┘
-                           │ (parallel fan-out)
+                           │ Send API parallel fan-out
           ┌────────────────┼────────────────────┐
           ▼                ▼                    ▼
   ┌──────────────┐  ┌─────────────┐   ┌──────────────────┐
   │  Form Agent  │  │ Venue Agent │   │ Vs-Team Agent    │
   │  last 2 yrs  │  │ city stats  │   │ vs opponent team │
+  │  pure math   │  │ pure math   │   │ pure math        │
   └──────┬───────┘  └──────┬──────┘   └────────┬─────────┘
          └──────────────┬──┘──────────────────┘
-                        ▼ (parallel H2H fan-out)
+                        ▼ (cross-team H2H pairs)
                ┌────────────────────┐
                │  Matchup Agent     │
-               │  bowlerA vs batterB│  ← cross-team H2H
+               │  bowlerA vs batterB│  ← pure math, no LLM
                └────────┬───────────┘
                         ▼
                ┌────────────────────┐
-               │  Scoring Agent     │
-               │  normalize scores  │
+               │  Score Aggregator  │
+               │  normalize scores  │  ← pure math, no LLM
                │  per dimension     │
                └────────┬───────────┘
                         ▼
                ┌────────────────────┐
-               │  XI Selector Agent │  ← LLM-powered reasoning
+               │  XI Selector Agent │  ← LLM here ONLY
                │  role constraints  │  (min 5 batters, 4+ bowlers)
                │  + justification   │
                └────────────────────┘
@@ -90,11 +91,11 @@ Since you already have LM Studio wired:
 
 | Task | Model Recommendation | Why |
 |---|---|---|
-| Orchestration + intent | Llama 3.3 70B (already using) | Strong reasoning |
-| Individual stat scoring | Can skip LLM — pure math | Deterministic |
-| Final XI selection + justification | Llama 3.3 70B or Qwen2.5-72B | Needs constrained reasoning |
+| Orchestration | No LLM — pure Python/LangGraph | Flow is fixed and deterministic; no routing decisions to make |
+| Individual stat scoring | No LLM — pure math | Deterministic, faster, cheaper |
+| Final XI selection + justification | Llama 3.3 70B or Qwen2.5-72B | Needs constrained reasoning + natural language output |
 
-The scoring agents don't need an LLM — they run math on DataFrames. Only the **orchestrator** and **XI selector** need LLM reasoning. This keeps local inference load manageable.
+The orchestrator's job is fixed: always fan out to the same agents, always aggregate, always call XI selector. There is no ambiguity to resolve, so an LLM adds cost with zero benefit. Only the **XI selector** needs LLM reasoning — one LLM call per run total. This keeps local inference load minimal.
 
 ---
 
@@ -141,5 +142,5 @@ This runs all 22 player analyses in parallel within the graph — no sequential 
 1. **Keep LangGraph** — don't switch frameworks, you're already invested and it handles this well with the `Send` API for parallel execution
 2. **Don't use an LLM for scoring** — pure pandas math is faster, cheaper, and deterministic; LLM only for final synthesis
 3. **Reuse your stat functions as-is** — they return DataFrames, just wrap them with a score normalizer
-4. **Local LLM is fine** — since only 2 nodes (orchestrator + selector) need LLM, Llama 3.3 70B via LM Studio handles it
+4. **Local LLM is fine** — only 1 node (XI selector) needs LLM; Llama 3.3 70B via LM Studio handles it with minimal inference load
 5. **Start with Form + Venue + VsTeam agents** before tackling H2H matchup matrix (which is O(n×m) and more complex)
