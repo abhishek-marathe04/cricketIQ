@@ -127,7 +127,7 @@
         "specialisation": "Bowler",
         "nationality": "India",
         "dbName": "RD Chahar",
-        "probableXi": true
+        "probableXi": false
       },
       {
         "name": "Mukesh Choudhary",
@@ -162,7 +162,7 @@
         "specialisation": "Bowler",
         "nationality": "New Zealand",
         "dbName": "MJ Henry",
-        "probableXi": false
+        "probableXi": true
       },
       {
         "name": "Akeal Hosein",
@@ -1380,7 +1380,7 @@
         "specialisation": "Bowler",
         "nationality": "India",
         "dbName": "Sandeep Sharma",
-        "probableXi": false
+        "probableXi": true
       },
       {
         "name": "Adam Milne",
@@ -1394,7 +1394,7 @@
         "specialisation": "Bowler",
         "nationality": "South Africa",
         "dbName": "N Burger",
-        "probableXi": false
+        "probableXi": true
       },
       {
         "name": "Kwena Maphaka",
