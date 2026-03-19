@@ -42,7 +42,7 @@
         "name": "Kartik Sharma",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "India",
-        "dbName": "KV Sharma",
+        "dbName": "Kartik Sharma",
         "probableXi": true
       },
       {
@@ -70,7 +70,7 @@
         "name": "Prashant Veer",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": "P Chopra",
+        "dbName": "Prashant Veer",
         "probableXi": true
       },
       {
@@ -251,7 +251,7 @@
         "name": "Pathum Nissanka",
         "specialisation": "Batter",
         "nationality": "Sri Lanka",
-        "dbName": null,
+        "dbName": "Pathum Nissanka",
         "probableXi": true
       },
       {
@@ -307,7 +307,7 @@
         "name": "Auqib Dar",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": null,
+        "dbName": "Auqib Dar",
         "probableXi": true
       },
       {
