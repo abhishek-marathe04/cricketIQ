@@ -2,6 +2,7 @@ import csv
 import json
 import os
 import streamlit as st
+from team_selector_components.main import graph  # your LangGraph runnable
 
 st.set_page_config(page_title="CricketIQ – Dream XI Picker", layout="wide")
 
@@ -159,6 +160,9 @@ if pick_clicked:
     st.session_state["team_a"] = team_a
     st.session_state["team_b"] = team_b
     st.session_state["match_city"] = match_city
+
+    result = graph.invoke({"input": dict(st.session_state)})
+    st.json(result)
 
     st.success("✅ Player pool locked in! AI agent thinking will appear here soon.")
 
