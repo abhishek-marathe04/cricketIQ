@@ -1,8 +1,7 @@
 pandas
 numpy
 plotly
-streamlit
-altair<5
+streamlit>=1.35.0
 langgraph
 langchain
 langchain-openai
