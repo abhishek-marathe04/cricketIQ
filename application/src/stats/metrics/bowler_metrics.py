@@ -1,6 +1,6 @@
 import pandas as pd
 from utils.logger import get_logger
-from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_matches_data
+from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_matches_data, get_teams_data
 
 logger = get_logger()
 
@@ -34,28 +34,30 @@ def calculate_bowler_performance_metrics(matchup):
     }
 
 def bowler_vs_team_stats(bowler, team):
-    # Use parentheses and & for multiple conditions
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
-    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['bowler'] == bowler) & (ipl_ball_by_ball_stats['team_batting'] == team)]
-    stats = {
+    teams_data = get_teams_data()
+    team_id = teams_data[teams_data['team_name'] == team]['team_id'].item()
+    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['bowler'] == bowler) & (ipl_ball_by_ball_stats['team_batting'] == team_id)]
+    if matchup.empty:
+        return {"type": "bowler_vs_team_stats", "bowler": bowler, "opposition_team": team, "stats": None, "message": "No historical data available"}
+    return {
         "type": "bowler_vs_team_stats",
         "bowler": bowler,
         "opposition_team": team,
-        "stats" : calculate_bowler_performance_metrics(matchup)
+        "stats": calculate_bowler_performance_metrics(matchup)
     }
-    return stats
 
 def bowler_at_venue_stats(bowler, city):
-    # Use parentheses and & for multiple conditions
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
     ipl_matches_stats = get_matches_data()
-    selected_matches =  ipl_matches_stats[ipl_matches_stats['city'] == city]['match_id']
-    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['bowler'] == bowler) 
+    selected_matches = ipl_matches_stats[ipl_matches_stats['city'] == city]['match_id']
+    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['bowler'] == bowler)
                                      & ipl_ball_by_ball_stats['match_id'].isin(selected_matches)]
-    stats = {
+    if matchup.empty:
+        return {"type": "bowler_at_venue_stats", "bowler": bowler, "city": city, "stats": None, "message": "No historical data available"}
+    return {
         "type": "bowler_at_venue_stats",
         "bowler": bowler,
         "city": city,
-        "stats" : calculate_bowler_performance_metrics(matchup)
+        "stats": calculate_bowler_performance_metrics(matchup)
     }
-    return stats

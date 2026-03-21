@@ -2,7 +2,7 @@
 
 import pandas as pd
 from utils.logger import get_logger
-from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_matches_data
+from stats.load_dataframes import get_ball_by_ball_data, get_player_name, get_matches_data, get_team_name, get_teams_data
 
 logger = get_logger()
 
@@ -43,7 +43,10 @@ def batter_vs_bowler_stats(batter, bowler):
 
 def batter_vs_team_stats(batter, team):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
-    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['batter'] == batter) & (ipl_ball_by_ball_stats['team_bowling'] == team)]
+    teams_data = get_teams_data()
+    logger.info(teams_data, team)
+    team_id = teams_data[teams_data['team_name'] == team]['team_id'].item()
+    matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['batter'] == batter) & (ipl_ball_by_ball_stats['team_bowling'] == team_id)]
     if matchup.empty:
         return {"type": "batter_vs_team_stats", "batter": batter, "opposition_team": team, "stats": None, "message": "No historical data available"}
     stats = {

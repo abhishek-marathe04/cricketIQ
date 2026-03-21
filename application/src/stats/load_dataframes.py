@@ -65,6 +65,16 @@ def process_ball_by_ball_data():
     return ball_by_ball_df
 
 
+def process_team_list():
+    """
+    Process datasets for team list.
+    """
+    # Load the data
+    teams_df = pd.read_csv(ipl_teams_path)
+
+    return teams_df
+
+
 def process_matches_data():
 
     teams_df, matches_df, ball_by_ball_df = load_data()
@@ -138,9 +148,14 @@ teams_mapping = process_team_names()
 
 ipl_matches_data = process_matches_data()
 
+team_list = process_team_list()
+
 # For exporting processed data to use in other files
 def get_ball_by_ball_data():
     return ipl_ball_by_ball_data
+
+def get_teams_data():
+    return team_list
 
 def get_matches_data():
     return ipl_matches_data
