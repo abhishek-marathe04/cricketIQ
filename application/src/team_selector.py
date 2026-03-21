@@ -155,36 +155,45 @@ if pick_clicked:
         {**p, "_team": team_b} for p in selected_b
     ]
 
-    # Store in session state for the AI agent to consume later
+    # Build a lookup for quick access to player metadata from the pool
+    player_meta = {p["name"]: p for p in combined}
+
     st.session_state["combined_pool"] = combined
     st.session_state["team_a"] = team_a
     st.session_state["team_b"] = team_b
     st.session_state["match_city"] = match_city
 
-    result = graph.invoke({"input": dict(st.session_state)})
-    st.json(result)
+    with st.spinner("🤖 AI agent is analysing stats and picking the best XI + 1…"):
+        result = graph.invoke({"input": dict(st.session_state)})
 
-    st.success("✅ Player pool locked in! AI agent thinking will appear here soon.")
+    # ── Parse final_choice ────────────────────────────────────────────────────
+    raw = result.get("final_choice", "[]")
+    try:
+        picks = json.loads(raw) if isinstance(raw, str) else raw
+    except (json.JSONDecodeError, TypeError):
+        picks = []
 
-    # ── Placeholder: show the pool as a preview ───────────────────────────────
-    st.markdown("### 📋 Selected Player Pool")
+    if picks:
+        st.success(f"✅ AI has selected {len(picks)} players!")
+        st.divider()
+        st.markdown("## 🏆 AI Dream XI + 1")
 
-    def pool_table(players, team_label):
-        rows = []
-        for p in players:
-            rows.append({
-                "Player": p["name"],
-                "Role": p["specialisation"],
-                "Nationality": p["nationality"],
-            })
-        if rows:
-            st.markdown(f"**{team_label}**")
-            st.table(rows)
+        for i, pick in enumerate(picks, start=1):
+            name = pick.get("player_name", "Unknown")
+            reason = pick.get("reason", "")
+            meta = player_meta.get(name, {})
+            role = meta.get("specialisation", "")
+            team = meta.get("_team", "")
+            icon = ROLE_ICONS.get(role, "👤")
+            team_color = "🔵" if team == team_a else "🔴"
 
-    pool_table(selected_a, f"🔵 {team_a}")
-    pool_table(selected_b, f"🔴 {team_b}")
-
-    st.info(
-        "🧠 **AI Agent thinking** will be displayed here in the next version. "
-        "The agent will analyse historical IPL stats and pick the optimal XI + Impact Player."
-    )
+            with st.container(border=True):
+                col_num, col_info = st.columns([1, 11])
+                col_num.markdown(f"### {i}")
+                with col_info:
+                    st.markdown(f"**{icon} {name}** &nbsp; {team_color} {team}")
+                    st.caption(f"{role}")
+                    st.write(reason)
+    else:
+        st.error("⚠️ Could not parse AI response. Raw output below:")
+        st.text(raw)

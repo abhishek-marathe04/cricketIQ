@@ -17,6 +17,6 @@ def get_llm_client(env="local"):
     
 def get_model_name(env="local"):
     if env == "prod":
-        return "ServiceNow-AI/Apriel-1.5-15b-Thinker"
+        return "meta-llama/Llama-3.3-70B-Instruct-Turbo"
     else:
         return "model-identifier"

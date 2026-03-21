@@ -84,15 +84,19 @@ def vs_team_agent(state: State):
     for batter in player_pool['team_a']['batters']:
         bv_stats = get_batter_vs_team_stats.invoke({"batter": batter['dbName'], "team": team_b})
         if bv_stats['stats'] is not None:
+            bv_stats['player_name'] = batter['name']
+            bv_stats['specialisation'] = batter['specialisation']
             raw_batter_stats.append(bv_stats)
     for batter in player_pool['team_b']['batters']:
         bv_stats = get_batter_vs_team_stats.invoke({"batter": batter['dbName'], "team": team_a})
         if bv_stats['stats'] is not None:
+            bv_stats['player_name'] = batter['name']
+            bv_stats['specialisation'] = batter['specialisation']
             raw_batter_stats.append(bv_stats)
 
     top_batters = sorted(raw_batter_stats, key=lambda x: x['stats']['impact_score'] or 0, reverse=True)[:6]
     batter_vs_team_stats = "\n".join(
-        f"{s['batter']} vs {s['opposition_team']} | avg:{s['stats']['average']} | sr:{s['stats']['strike_rate']} | impact:{s['stats']['impact_score']}"
+        f"{s['player_name']} ({s['specialisation']}) vs {s['opposition_team']} | avg:{s['stats']['average']} | sr:{s['stats']['strike_rate']} | impact:{s['stats']['impact_score']}"
         for s in top_batters
     )
 
@@ -101,15 +105,19 @@ def vs_team_agent(state: State):
     for bowler in player_pool['team_a']['bowlers']:
         bw_stats = get_bowler_vs_team_stats.invoke({"bowler": bowler['dbName'], "team": team_b})
         if bw_stats['stats'] is not None:
+            bw_stats['player_name'] = bowler['name']
+            bw_stats['specialisation'] = bowler['specialisation']
             raw_bowler_stats.append(bw_stats)
     for bowler in player_pool['team_b']['bowlers']:
         bw_stats = get_bowler_vs_team_stats.invoke({"bowler": bowler['dbName'], "team": team_a})
         if bw_stats['stats'] is not None:
+            bw_stats['player_name'] = bowler['name']
+            bw_stats['specialisation'] = bowler['specialisation']
             raw_bowler_stats.append(bw_stats)
 
     top_bowlers = sorted(raw_bowler_stats, key=lambda x: x['stats']['impact_score'] or 0, reverse=True)[:6]
     bowler_vs_team_stats = "\n".join(
-        f"{s['bowler']} vs {s['opposition_team']} | economy:{s['stats']['economy']} | avg:{s['stats']['average']} | impact:{s['stats']['impact_score']}"
+        f"{s['player_name']} ({s['specialisation']}) vs {s['opposition_team']} | economy:{s['stats']['economy']} | avg:{s['stats']['average']} | impact:{s['stats']['impact_score']}"
         for s in top_bowlers
     )
 
@@ -135,12 +143,14 @@ def venue_agent(state: State):
     for batter in all_batters:
         bv_stats = get_batter_at_venue_stats.invoke({"batter": batter['dbName'], "city": city})
         if bv_stats['stats'] is not None:
+            bv_stats['player_name'] = batter['name']
+            bv_stats['specialisation'] = batter['specialisation']
             raw_batter_stats.append(bv_stats)
 
     # Sort by impact_score descending, keep top 6
     top_batters = sorted(raw_batter_stats, key=lambda x: x['stats']['impact_score'] or 0, reverse=True)[:6]
     batter_venue_stats = "\n".join(
-        f"{s['batter']} | venue_avg:{s['stats']['average']} | venue_sr:{s['stats']['strike_rate']} | impact:{s['stats']['impact_score']}"
+        f"{s['player_name']} ({s['specialisation']}) | venue_avg:{s['stats']['average']} | venue_sr:{s['stats']['strike_rate']} | impact:{s['stats']['impact_score']}"
         for s in top_batters
     )
 
@@ -149,12 +159,14 @@ def venue_agent(state: State):
     for bowler in all_bowlers:
         bw_stats = get_bowler_at_venue_stats.invoke({"bowler": bowler['dbName'], "city": city})
         if bw_stats['stats'] is not None:
+            bw_stats['player_name'] = bowler['name']
+            bw_stats['specialisation'] = bowler['specialisation']
             raw_bowler_stats.append(bw_stats)
 
     # Sort by impact_score descending, keep top 6
     top_bowlers = sorted(raw_bowler_stats, key=lambda x: x['stats']['impact_score'] or 0, reverse=True)[:6]
     bowler_venue_stats = "\n".join(
-        f"{s['bowler']} | venue_economy:{s['stats']['economy']} | venue_avg:{s['stats']['average']} | impact:{s['stats']['impact_score']}"
+        f"{s['player_name']} ({s['specialisation']}) | venue_economy:{s['stats']['economy']} | venue_avg:{s['stats']['average']} | impact:{s['stats']['impact_score']}"
         for s in top_bowlers
     )
 
@@ -189,6 +201,7 @@ def selector_node(state: State):
             model=model,
             messages=[{"role": "user", "content": formatted_prompt}],
             temperature=0.2,
+            max_tokens=8192,
         )
         logger.info(f"Response from llm: {response}")
         message_from_llm = response.choices[0].message.content
