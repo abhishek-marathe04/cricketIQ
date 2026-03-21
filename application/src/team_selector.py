@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import re
 import streamlit as st
 from team_selector_components.main import graph  # your LangGraph runnable
 
@@ -145,7 +146,7 @@ pick_clicked = st.button(
     "🤖 Let AI Pick the Best 11 + 1",
     type="primary",
     disabled=(total < 11),
-    use_container_width=True,
+    width='stretch',
 )
 
 if pick_clicked:
@@ -172,6 +173,66 @@ if pick_clicked:
         picks = json.loads(raw) if isinstance(raw, str) else raw
     except (json.JSONDecodeError, TypeError):
         picks = []
+
+    # ── Show stats used by AI ─────────────────────────────────────────────────
+    def parse_stat_lines(text: str) -> list[dict]:
+        """Parse pipe-delimited stat lines into a list of dicts for table display."""
+        rows = []
+        for line in text.strip().splitlines():
+            parts = [p.strip() for p in line.split("|")]
+            if not parts:
+                continue
+            row = {"Player": parts[0]}
+            for part in parts[1:]:
+                m = re.match(r"([^:]+):(.*)", part)
+                if m:
+                    row[m.group(1).strip()] = m.group(2).strip()
+            rows.append(row)
+        return rows
+
+    venue_scores = result.get("venue_scores", {})
+    vs_team_scores = result.get("vs_team_scores", {})
+
+    with st.expander("📊 Stats used by AI  *(from IPL dataset — no internet)*", expanded=False):
+        st.caption(
+            "These are the only numbers the AI saw. All data is sourced from your local IPL dataset "
+            f"(2008–2025), filtered for **{match_city}** venue and **{team_a} vs {team_b}** matchups."
+        )
+        tab_venue, tab_opp = st.tabs(["🏟️ Venue Stats", "⚔️ vs Opposition Stats"])
+
+        with tab_venue:
+            col_vb, col_vbw = st.columns(2)
+            with col_vb:
+                st.markdown("**Batters at venue**")
+                vb_rows = parse_stat_lines(venue_scores.get("batters", ""))
+                if vb_rows:
+                    st.dataframe(vb_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
+            with col_vbw:
+                st.markdown("**Bowlers at venue**")
+                vbw_rows = parse_stat_lines(venue_scores.get("bowlers", ""))
+                if vbw_rows:
+                    st.dataframe(vbw_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
+
+        with tab_opp:
+            col_ob, col_obw = st.columns(2)
+            with col_ob:
+                st.markdown("**Batters vs opposition**")
+                ob_rows = parse_stat_lines(vs_team_scores.get("batters", ""))
+                if ob_rows:
+                    st.dataframe(ob_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
+            with col_obw:
+                st.markdown("**Bowlers vs opposition**")
+                obw_rows = parse_stat_lines(vs_team_scores.get("bowlers", ""))
+                if obw_rows:
+                    st.dataframe(obw_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
 
     if picks:
         st.success(f"✅ AI has selected {len(picks)} players!")
