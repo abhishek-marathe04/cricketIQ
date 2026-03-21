@@ -3,7 +3,7 @@ from pydantic import ValidationError
 from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_stats, call_player_stats_per_season, call_player_stats_vs_bowler_type, call_season_overview, call_team_vs_team_stats
 from langgraph_components.pydantic_models import ParseIntentAndArguments
 from utils.utilities import extract_json_from_response
-from utils.llm import get_llm_client, get_model_name
+from utils.llm import call_llm_with_fallback
 from langgraph_components.prompts import prompt_template
 from utils.logger import get_logger
 from langchain_core.prompts import PromptTemplate
@@ -25,15 +25,9 @@ def parse_query_node(state):
     try:
         formatted_prompt = prompt.format(query=user_input)
 
-        # LLM
         logger.info(f'env : {ENV}')
-        llm = get_llm_client(env=ENV)
-
-        model = get_model_name(env=ENV)
-
-
-        response = llm.chat.completions.create(
-            model=model,
+        response = call_llm_with_fallback(
+            env=ENV,
             messages=[{"role": "user", "content": formatted_prompt}],
             temperature=0.2,
         )

@@ -1,6 +1,6 @@
 
 import uuid
-from stats.common_functions.custom_exceptions import AmbiguousPlayerNameError, NoPlayerFoundError
+from stats.common_functions.custom_exceptions import AmbiguousPlayerNameError, NoPlayerFoundError, AllModelsRateLimitedError
 from utils.logger import get_logger
 import streamlit as st
 from langgraph_components.main import graph  # your LangGraph runnable
@@ -102,6 +102,9 @@ if st.button("Ask") and user_input:
         logger.error(error_msg)
         # track_error_event(error_msg, context="Bad User Query")
         track_event(user_id, "Multiple Player Error Occurred", {"error": str(e)})
+    except AllModelsRateLimitedError:
+        st.warning("⚠️ Unfortunately, the daily token limit has been reached. Please try again tomorrow!")
+        track_event(user_id, "All Models Rate Limited", {})
     except Exception as e:
         st.error("Oops! Something went wrong.")
         error_msg = str(e)

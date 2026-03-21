@@ -1,7 +1,7 @@
 
 from team_selector_components.tools import get_batter_at_venue_stats, get_bowler_at_venue_stats, get_batter_vs_team_stats, get_bowler_vs_team_stats
 from team_selector_components.prompts import selector_prompt_template
-from utils.llm import get_llm_client, get_model_name
+from utils.llm import call_llm_with_fallback
 import operator
 import json
 from pydantic import BaseModel, Field, ConfigDict
@@ -193,11 +193,8 @@ def selector_node(state: State):
 
     try:
         logger.info(f'env : {ENV}')
-        llm = get_llm_client(env=ENV)
-        model = get_model_name(env=ENV)
-
-        response = llm.chat.completions.create(
-            model=model,
+        response = call_llm_with_fallback(
+            env=ENV,
             messages=[{"role": "user", "content": formatted_prompt}],
             temperature=0.2,
             max_tokens=8192,

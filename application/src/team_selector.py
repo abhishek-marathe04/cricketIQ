@@ -4,6 +4,7 @@ import os
 import re
 import streamlit as st
 from team_selector_components.main import graph  # your LangGraph runnable
+from stats.common_functions.custom_exceptions import AllModelsRateLimitedError
 
 st.set_page_config(page_title="CricketIQ – Dream XI Picker", layout="wide")
 
@@ -165,7 +166,11 @@ if pick_clicked:
     st.session_state["match_city"] = match_city
 
     with st.spinner("🤖 AI agent is analysing stats and picking the best XI + 1…"):
-        result = graph.invoke({"input": dict(st.session_state)})
+        try:
+            result = graph.invoke({"input": dict(st.session_state)})
+        except AllModelsRateLimitedError:
+            st.warning("⚠️ Unfortunately, the daily token limit has been reached. Please try again tomorrow!")
+            st.stop()
 
     # ── Parse final_choice ────────────────────────────────────────────────────
     raw = result.get("final_choice", "[]")
