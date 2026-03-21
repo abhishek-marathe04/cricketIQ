@@ -177,7 +177,6 @@ def venue_agent(state: State):
 
 # --- The Orchestrator / Selector ---
 def selector_node(state: State):
-    logger.info(f'Inside selector_node')
     venue_scores = state["venue_scores"]
     vs_team_scores = state["vs_team_scores"]
     team_a = state["input"]["team_a"]

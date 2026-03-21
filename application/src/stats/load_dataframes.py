@@ -155,7 +155,7 @@ def get_ball_by_ball_data():
     return ipl_ball_by_ball_data
 
 def get_teams_data():
-    return team_list
+    return teams_mapping
 
 def get_matches_data():
     return ipl_matches_data

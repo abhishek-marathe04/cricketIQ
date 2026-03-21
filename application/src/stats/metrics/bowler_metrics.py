@@ -27,16 +27,16 @@ def calculate_bowler_performance_metrics(matchup):
     print(f"wickets : {wickets} ")
     print(f"runs_concedded : {runs_concedded} ")
     return {
-        "economy": round(economy_rate, 2).item(),
-        "average": round(bowler_average, 2).item(),
+        "economy": float(round(economy_rate, 2)),
+        "average": float(round(bowler_average, 2)),
         "strike_rate": strike_rate,
-        "impact_score": round(impact, 2).item()
+        "impact_score": float(round(impact, 2))
     }
 
 def bowler_vs_team_stats(bowler, team):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
     teams_data = get_teams_data()
-    team_id = teams_data[teams_data['team_name'] == team]['team_id'].item()
+    team_id = teams_data[teams_data['alias_name'] == team]['team_id'].item()
     matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['bowler'] == bowler) & (ipl_ball_by_ball_stats['team_batting'] == team_id)]
     if matchup.empty:
         return {"type": "bowler_vs_team_stats", "bowler": bowler, "opposition_team": team, "stats": None, "message": "No historical data available"}

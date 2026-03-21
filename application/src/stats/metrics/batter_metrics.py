@@ -22,10 +22,10 @@ def calculate_batter_performance_metrics(matchup):
     impact = ((runs / outs + 1) * (strike_rate / 100)) if outs > 0 else None
 
     return {
-        "boundary_percentage": round(boundry_percentage, 2).item(),
-        "average": round(batter_average, 2).item() if batter_average is not None else None,
-        "strike_rate": round(strike_rate, 2).item(),
-        "impact_score": round(impact, 2).item() if impact is not None else None
+        "boundary_percentage": float(round(boundry_percentage, 2)),
+        "average": float(round(batter_average, 2)) if batter_average is not None else None,
+        "strike_rate": float(round(strike_rate, 2)),
+        "impact_score": float(round(impact, 2)) if impact is not None else None
     }
 
 def batter_vs_bowler_stats(batter, bowler):
@@ -44,8 +44,7 @@ def batter_vs_bowler_stats(batter, bowler):
 def batter_vs_team_stats(batter, team):
     ipl_ball_by_ball_stats = get_ball_by_ball_data()
     teams_data = get_teams_data()
-    logger.info(teams_data, team)
-    team_id = teams_data[teams_data['team_name'] == team]['team_id'].item()
+    team_id = teams_data[teams_data['alias_name'] == team]['team_id'].item()
     matchup = ipl_ball_by_ball_stats[(ipl_ball_by_ball_stats['batter'] == batter) & (ipl_ball_by_ball_stats['team_bowling'] == team_id)]
     if matchup.empty:
         return {"type": "batter_vs_team_stats", "batter": batter, "opposition_team": team, "stats": None, "message": "No historical data available"}

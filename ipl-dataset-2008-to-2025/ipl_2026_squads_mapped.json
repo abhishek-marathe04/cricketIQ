@@ -105,7 +105,7 @@
         "name": "Zak Foulkes",
         "specialisation": "All-rounder",
         "nationality": "England",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       },
       {
@@ -237,7 +237,7 @@
         "name": "Ben Duckett",
         "specialisation": "Wicketkeeper-Batter",
         "nationality": "England",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       },
       {
@@ -718,7 +718,7 @@
         "name": "Blessing Muzarabani",
         "specialisation": "Bowler",
         "nationality": "Zimbabwe",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       }
     ]
@@ -1052,7 +1052,7 @@
         "name": "Allah Ghazanfar",
         "specialisation": "Bowler",
         "nationality": "Afghanistan",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       },
       {
@@ -1177,7 +1177,7 @@
         "name": "Cooper Connolly",
         "specialisation": "All-rounder",
         "nationality": "Australia",
-        "dbName": null,
+        "dbName": "",
         "probableXi": true
       },
       {
@@ -1476,7 +1476,7 @@
         "name": "Satvik Deswal",
         "specialisation": "Batter",
         "nationality": "India",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       },
       {
@@ -1546,7 +1546,7 @@
         "name": "Vicky Ostwal",
         "specialisation": "All-rounder",
         "nationality": "India",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       },
       {
@@ -1602,7 +1602,7 @@
         "name": "Jacob Duffy",
         "specialisation": "Bowler",
         "nationality": "New Zealand",
-        "dbName": null,
+        "dbName": "",
         "probableXi": true
       },
       {
@@ -1804,7 +1804,7 @@
         "name": "Krains Fuletra",
         "specialisation": "Bowler",
         "nationality": "India",
-        "dbName": null,
+        "dbName": "",
         "probableXi": false
       }
     ]
