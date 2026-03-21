@@ -1,7 +1,7 @@
 from utils.logger import get_logger
 from stats.player.player_stats_in_season import show_player_stats_in_season
-from stats.metrics.batter_metrics import batter_vs_bowler_stats, batter_vs_team_stats, batter_at_venue_stats
-from stats.metrics.bowler_metrics import bowler_vs_team_stats, bowler_at_venue_stats
+from stats.metrics.batter_metrics import batter_vs_bowler_stats, batter_vs_team_stats, batter_at_venue_stats, batter_recent_form_stats
+from stats.metrics.bowler_metrics import bowler_vs_team_stats, bowler_at_venue_stats, bowler_recent_form_stats
 from langchain_core.tools import tool
 
 logger = get_logger()
@@ -41,3 +41,15 @@ def get_bowler_vs_team_stats(bowler: str, team: str) -> dict:
 def get_bowler_at_venue_stats(bowler: str, city: str) -> dict:
     logger.info(f"get_bowler_at_venue_stats: bowler={bowler}, city={city}")
     return bowler_at_venue_stats(bowler=bowler, city=city)
+
+
+@tool(description="Fetches batter aggregate performance metrics (average, strike rate, boundary %, impact score) over their last N matches.")
+def get_batter_recent_form_stats(batter: str, num_matches: int = 5) -> dict:
+    logger.info(f"get_batter_recent_form_stats: batter={batter}, num_matches={num_matches}")
+    return batter_recent_form_stats(batter=batter, num_matches=num_matches)
+
+
+@tool(description="Fetches bowler aggregate performance metrics (economy, average, strike rate, impact score) over their last N matches.")
+def get_bowler_recent_form_stats(bowler: str, num_matches: int = 5) -> dict:
+    logger.info(f"get_bowler_recent_form_stats: bowler={bowler}, num_matches={num_matches}")
+    return bowler_recent_form_stats(bowler=bowler, num_matches=num_matches)

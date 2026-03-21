@@ -197,13 +197,14 @@ if pick_clicked:
 
     venue_scores = result.get("venue_scores", {})
     vs_team_scores = result.get("vs_team_scores", {})
+    recent_form_scores = result.get("recent_form_scores", "")
 
     with st.expander("📊 Stats used by AI  *(from IPL dataset — no internet)*", expanded=False):
         st.caption(
             "These are the only numbers the AI saw. All data is sourced from your local IPL dataset "
             f"(2008–2025), filtered for **{match_city}** venue and **{team_a} vs {team_b}** matchups."
         )
-        tab_venue, tab_opp = st.tabs(["🏟️ Venue Stats", "⚔️ vs Opposition Stats"])
+        tab_venue, tab_opp, tab_form = st.tabs(["🏟️ Venue Stats", "⚔️ vs Opposition Stats", "🔥 Recent Form"])
 
         with tab_venue:
             col_vb, col_vbw = st.columns(2)
@@ -236,6 +237,23 @@ if pick_clicked:
                 obw_rows = parse_stat_lines(vs_team_scores.get("bowlers", ""))
                 if obw_rows:
                     st.dataframe(obw_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
+
+        with tab_form:
+            col_fb, col_fbw = st.columns(2)
+            with col_fb:
+                st.markdown("**Batters — last 5 matches**")
+                fb_rows = parse_stat_lines(recent_form_scores.get("batters", ""))
+                if fb_rows:
+                    st.dataframe(fb_rows, width='stretch', hide_index=True)
+                else:
+                    st.caption("No data")
+            with col_fbw:
+                st.markdown("**Bowlers — last 5 matches**")
+                fbw_rows = parse_stat_lines(recent_form_scores.get("bowlers", ""))
+                if fbw_rows:
+                    st.dataframe(fbw_rows, width='stretch', hide_index=True)
                 else:
                     st.caption("No data")
 

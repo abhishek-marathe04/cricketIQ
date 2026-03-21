@@ -30,15 +30,10 @@ Input: 24 players (from team_selector.py) + Venue + Match Date
           ▼                ▼                    ▼
   ┌──────────────┐  ┌─────────────┐   ┌──────────────────┐
   │  Form Agent  │  │ Venue Agent │   │ Vs-Team Agent    │
-  │  last 2 yrs  │  │ city stats  │   │ vs opponent team │
+  │  last 5 mats │  │ city stats  │   │ vs opponent team │
   │  pure math   │  │ pure math   │   │ pure math        │
   └──────┬───────┘  └──────┬──────┘   └────────┬─────────┘
-         └──────────────┬──┘──────────────────┘
-                        ▼ (cross-team H2H pairs)
-               ┌────────────────────┐
-               │  Matchup Agent     │
-               │  bowlerA vs batterB│  ← pure math, no LLM
-               └────────┬───────────┘
+         └──────────────────┴──────────────────┘
                         ▼
                ┌────────────────────┐
                │  Score Aggregator  │
@@ -55,12 +50,12 @@ Input: 24 players (from team_selector.py) + Venue + Match Date
 
 ---
 
-## 5 Specialized Agents Breakdown
+## 4 Specialized Agents Breakdown
 
 **1. Form Agent** — for each of 22 players
-- Calls `player_stats_in_season` for seasons 2024 + 2025
-- Computes trend: improving/declining (compare season-over-season SR and avg)
-- Score: weighted recent SR + avg
+- Filters ball-by-ball data to the last 5 matches per player
+- Computes runs, SR, avg (batters) and economy, wickets (bowlers) over that window
+- Score: weighted recent SR + avg; flags hot/cold form trend
 
 **2. Venue Agent** — for each of 22 players
 - Calls `call_batter_stats(player, city=venue)` (already exists)
@@ -72,14 +67,8 @@ Input: 24 players (from team_selector.py) + Venue + Match Date
 - Captures how a player historically performs vs this specific opposition
 - Score: SR/avg vs that team
 
-**4. Matchup Agent** — cross-team H2H pairs
-- For each bowler in Team A × each batter in Team B (and vice versa)
-- Calls `call_batter_stats_vs_bowler(batter, bowler)` — already exists
-- Identifies "danger matchups" and "favorable matchups"
-- Informs selection (avoid picking batter dominated by an opposition bowler)
-
-**5. XI Selector Agent** — final LLM-powered selection
-- Receives all scores as a structured JSON
+**4. XI Selector Agent** — final LLM-powered selection
+- Receives all scores (form + venue + vs-team) as a structured JSON
 - Applies role constraints (need valid batting order + bowling attack)
 - Produces ranked shortlist + explanation per player selected/rejected
 
@@ -128,10 +117,9 @@ This runs all 22 player analyses in parallel within the graph — no sequential 
 |---|---|---|
 | `PlayerProfile` Pydantic model | Low | Holds role tag, team, scores per dimension |
 | Scoring functions | Medium | Normalize stats → 0-100 score per dimension |
-| `form_agent` node | Medium | Wraps existing `player_stats_in_season` |
+| `form_agent` node | Medium | Filters last 5 matches from ball-by-ball data, computes form score |
 | `venue_agent` node | Low | Wraps existing `call_batter_stats` with city filter |
 | `vs_team_agent` node | Low | Wraps existing `call_batter_stats` with team filter |
-| `matchup_agent` node | Medium | Cross-product H2H, runs `batter_stats_vs_bowler` |
 | `xi_selector_agent` node | Medium-High | LLM prompt with role constraints |
 | New Streamlit UI tab | Medium | Input 22 players + roles + venue |
 
@@ -143,4 +131,4 @@ This runs all 22 player analyses in parallel within the graph — no sequential 
 2. **Don't use an LLM for scoring** — pure pandas math is faster, cheaper, and deterministic; LLM only for final synthesis
 3. **Reuse your stat functions as-is** — they return DataFrames, just wrap them with a score normalizer
 4. **Local LLM is fine** — only 1 node (XI selector) needs LLM; Llama 3.3 70B via LM Studio handles it with minimal inference load
-5. **Start with Form + Venue + VsTeam agents** before tackling H2H matchup matrix (which is O(n×m) and more complex)
+5. **Build Form + Venue + VsTeam agents** — matchup agent skipped for now due to sparse H2H data at player level

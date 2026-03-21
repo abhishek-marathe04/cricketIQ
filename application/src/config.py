@@ -10,3 +10,4 @@ TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY", "")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 POSTHOG_API_KEY = os.getenv("POSTHOG_API_KEY", "")
 POSTHOG_HOST = os.getenv("POSTHOG_HOST", "")
+MOCK_LLM = os.getenv("MOCK_LLM", "false").lower() == "true"

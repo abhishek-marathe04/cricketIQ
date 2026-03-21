@@ -70,3 +70,31 @@ def batter_at_venue_stats(batter, city):
         "stats": calculate_batter_performance_metrics(matchup)
     }
     return stats
+
+
+def batter_recent_form_stats(batter, num_matches=5):
+    ipl_ball_by_ball_stats = get_ball_by_ball_data()
+    ipl_matches_stats = get_matches_data()
+
+    batter_matches = ipl_ball_by_ball_stats[ipl_ball_by_ball_stats['batter'] == batter]['match_id'].unique()
+    if len(batter_matches) == 0:
+        return {"type": "batter_recent_form", "batter": batter, "matches_considered": 0, "stats": None, "message": "No historical data available"}
+
+    recent_matches = (
+        ipl_matches_stats[ipl_matches_stats['match_id'].isin(batter_matches)]
+        .sort_values('match_date', ascending=False)
+        .head(num_matches)
+    )
+
+    recent_match_ids = recent_matches['match_id'].tolist()
+    matchup = ipl_ball_by_ball_stats[
+        (ipl_ball_by_ball_stats['batter'] == batter) &
+        (ipl_ball_by_ball_stats['match_id'].isin(recent_match_ids))
+    ]
+
+    return {
+        "type": "batter_recent_form",
+        "batter": batter,
+        "matches_considered": len(recent_match_ids),
+        "stats": calculate_batter_performance_metrics(matchup)
+    }

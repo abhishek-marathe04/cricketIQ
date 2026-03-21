@@ -61,3 +61,30 @@ def bowler_at_venue_stats(bowler, city):
         "city": city,
         "stats": calculate_bowler_performance_metrics(matchup)
     }
+
+def bowler_recent_form_stats(bowler, num_matches=5):
+    ipl_ball_by_ball_stats = get_ball_by_ball_data()
+    ipl_matches_stats = get_matches_data()
+
+    bowler_matches = ipl_ball_by_ball_stats[ipl_ball_by_ball_stats['bowler'] == bowler]['match_id'].unique()
+    if len(bowler_matches) == 0:
+        return {"type": "bowler_recent_form", "bowler": bowler, "matches_considered": 0, "stats": None, "message": "No historical data available"}
+
+    recent_matches = (
+        ipl_matches_stats[ipl_matches_stats['match_id'].isin(bowler_matches)]
+        .sort_values('match_date', ascending=False)
+        .head(num_matches)
+    )
+
+    recent_match_ids = recent_matches['match_id'].tolist()
+    matchup = ipl_ball_by_ball_stats[
+        (ipl_ball_by_ball_stats['bowler'] == bowler) &
+        (ipl_ball_by_ball_stats['match_id'].isin(recent_match_ids))
+    ]
+
+    return {
+        "type": "bowler_recent_form",
+        "bowler": bowler,
+        "matches_considered": len(recent_match_ids),
+        "stats": calculate_bowler_performance_metrics(matchup)
+    }
