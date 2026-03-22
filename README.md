@@ -1,8 +1,22 @@
-# 🏏 CricketIQ App
+# 🏏 CricketIQ
 
-This is an interactive application that visualizes IPL player and team performance using natural language queries. Built with **Streamlit**, **LangGraph**, and **Pandas**, the app helps uncover deep cricket insights using AI-powered querying and beautiful visualizations.
+CricketIQ is a suite of AI-powered cricket analytics tools built on IPL data.
 
-## 🚀 Features
+---
+
+## Projects in this Repo
+
+### 1. Stats Explorer (`app.py`)
+An interactive app that visualizes IPL player and team performance using natural language queries. Built with **Streamlit**, **LangGraph**, and **Pandas** — ask questions in plain English and get charts and tables back instantly.
+
+### 2. AI Best XI Selector (`team_selector.py`)
+A multi-agent system that picks the optimal playing XI + 1 Impact Player for any IPL match. Three parallel LangGraph agents evaluate venue history, opposition head-to-head records, and recent form — then a Groq LLM applies role constraints and produces a justified selection.
+
+→ **Full technical details, architecture, and setup:** [BEST_XI_SELECTOR.md](BEST_XI_SELECTOR.md)
+
+---
+
+## Stats Explorer — Features
 
 - Query player stats across seasons or against teams/bowler types
 - Team vs team performance comparisons
@@ -91,13 +105,16 @@ cp .env.example .env   # if example exists, otherwise create manually
 
 ```env
 TOGETHER_API_KEY=your_together_api_key_here
+GROQ_API_KEY=your_groq_api_key_here          # required for Best XI Selector (prod mode)
 POSTHOG_API_KEY=your_posthog_key_here        # optional, for analytics
 POSTHOG_HOST=your_posthog_host_here          # optional
 ENV=local                                     # set to "prod" for production
+MOCK_LLM=false                               # set to "true" to bypass LLM in Best XI Selector
 GA_MEASUREMENT_ID=G-XXXXXXXXXX               # optional, for Google Analytics
 ```
 
-> `TOGETHER_API_KEY` is required — it powers the LLM. Get one at [together.ai](https://www.together.ai).
+> `TOGETHER_API_KEY` powers the Stats Explorer LLM. Get one at [together.ai](https://www.together.ai).
+> `GROQ_API_KEY` powers the Best XI Selector LLM. Get one at [console.groq.com](https://console.groq.com).
 
 ### 3. Start the Database
 
