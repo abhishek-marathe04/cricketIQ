@@ -6,129 +6,163 @@ Your existing infra covers most of the data layer you need:
 
 | Existing Function | Reusable For |
 |---|---|
-| `call_batter_stats(player, opponent_team, city)` | Batter vs team, batter at ground |
-| `call_batter_stats_vs_bowler(batter, bowler)` | Direct H2H matchup analysis |
-| `player_stats_in_season.py` | Recent form (filter last 1-2 seasons) |
-| `player_stats_vs_bowler_type.py` | Batter weakness profiling |
-| LM Studio integration in `utils/llm.py` | Local LLM already wired |
+| `batter_at_venue_stats(batter, city)` in `stats/metrics/batter_metrics.py` | Batter at ground |
+| `batter_vs_team_stats(batter, team)` in `stats/metrics/batter_metrics.py` | Batter vs team |
+| `batter_recent_form_stats(batter, num_matches)` in `stats/metrics/batter_metrics.py` | Recent form (last N matches) |
+| `bowler_at_venue_stats`, `bowler_vs_team_stats`, `bowler_recent_form_stats` in `stats/metrics/bowler_metrics.py` | Bowler equivalents for all dimensions |
+| `batter_vs_bowler_stats(batter, bowler)` in `stats/metrics/batter_metrics.py` | Direct H2H matchup (tool exists, agent not yet built) |
+| `player_stats_in_season.py` | Per-season stats |
+| Groq integration (prod) + LM Studio (local) in `utils/llm.py` | LLM wired with fallback chain |
 
 You're not building from scratch — you're building a **scoring + selection layer** on top of existing stat functions.
 
 ---
 
-## Proposed Multi-Agent Architecture
+## Actual Architecture (Built)
 
 ```
-Input: 24 players (from team_selector.py) + Venue + Match Date
+Input: combined player pool (from team_selector.py UI) + Venue + Match Date
                           │
                 ┌─────────▼──────────┐
-                │  Orchestrator      │  ← LangGraph entry
-                │  pure Python/code  │  ← NO LLM — fixed, deterministic flow
+                │  prepare_player_pools  │  ← LangGraph entry node
+                │  pure Python/code  │  ← NO LLM — splits combined_pool
+                │                    │     into team_a/team_b × batters/bowlers
                 └──────────┬─────────┘
-                           │ Send API parallel fan-out
+                           │ 3-way parallel fan-out (edges, not Send API)
           ┌────────────────┼────────────────────┐
           ▼                ▼                    ▼
   ┌──────────────┐  ┌─────────────┐   ┌──────────────────┐
-  │  Form Agent  │  │ Venue Agent │   │ Vs-Team Agent    │
-  │  last 5 mats │  │ city stats  │   │ vs opponent team │
-  │  pure math   │  │ pure math   │   │ pure math        │
+  │ venue_agent  │  │vs_team_agent│   │recent_form_agent │
+  │ city stats   │  │ vs opponent │   │ last 5 matches   │
+  │ pure math    │  │ pure math   │   │ pure math        │
   └──────┬───────┘  └──────┬──────┘   └────────┬─────────┘
          └──────────────────┴──────────────────┘
-                        ▼
+                        ▼  (fan-in: all 3 feed selector)
                ┌────────────────────┐
-               │  Score Aggregator  │
-               │  normalize scores  │  ← pure math, no LLM
-               │  per dimension     │
-               └────────┬───────────┘
-                        ▼
-               ┌────────────────────┐
-               │  XI Selector Agent │  ← LLM here ONLY
-               │  role constraints  │  (min 5 batters, 4+ bowlers)
-               │  + justification   │
+               │   selector_node    │  ← LLM here ONLY
+               │  role constraints  │  (1+ WK, 3+ Batters, 3+ Bowlers,
+               │  + justification   │   1+ All-rounder, max 7 from one team)
+               │  selects 12 players│
                └────────────────────┘
 ```
 
+**Note:** The original plan proposed using LangGraph's `Send` API for per-player parallel fan-out. The actual implementation uses simpler parallel edges — each agent processes all players in its pool sequentially within the node.
+
 ---
 
-## 4 Specialized Agents Breakdown
+## 4 Nodes Breakdown (as built)
 
-**1. Form Agent** — for each of 22 players
-- Filters ball-by-ball data to the last 5 matches per player
+**1. `prepare_player_pools`** — orchestration / pre-processing
+- Splits `combined_pool` from Streamlit session state into `team_a` / `team_b` × `batters` / `bowlers`
+- Uses role sets: `{Batter, All-rounder, Wicketkeeper-Batter}` for batters; `{Bowler, All-rounder}` for bowlers
+- No LLM — pure Python
+
+**2. `recent_form_agent`** — for all players in combined pool
+- Calls `get_batter_recent_form_stats` / `get_bowler_recent_form_stats` (last 5 matches default)
 - Computes runs, SR, avg (batters) and economy, wickets (bowlers) over that window
-- Score: weighted recent SR + avg; flags hot/cold form trend
+- Sorts by `impact_score` descending, keeps top 7 batters + top 7 bowlers
+- Returns formatted pipe-delimited string for the LLM prompt
 
-**2. Venue Agent** — for each of 22 players
-- Calls `call_batter_stats(player, city=venue)` (already exists)
-- For bowlers: filter where they are bowling at that city
-- Score: SR/avg/economy at that ground relative to career average
+**3. `venue_agent`** — for all players in combined pool
+- Calls `get_batter_at_venue_stats` / `get_bowler_at_venue_stats` with `match_city`
+- Players with no historical data at the venue are silently skipped
+- Sorts by `impact_score` descending, keeps top 7 batters + top 7 bowlers
 
-**3. Vs-Team Agent** — for each of 22 players
-- Calls `call_batter_stats(player, opponent_team_name=opponent)`
-- Captures how a player historically performs vs this specific opposition
-- Score: SR/avg vs that team
+**4. `vs_team_agent`** — for all players in combined pool
+- Team A batters face Team B (their opposition), Team B batters face Team A
+- Calls `get_batter_vs_team_stats` / `get_bowler_vs_team_stats`
+- Sorts by `impact_score` descending, keeps top 7 batters + top 7 bowlers
 
-**4. XI Selector Agent** — final LLM-powered selection
-- Receives all scores (form + venue + vs-team) as a structured JSON
-- Applies role constraints (need valid batting order + bowling attack)
-- Produces ranked shortlist + explanation per player selected/rejected
-
----
-
-## LLM Strategy (Local/Open Source)
-
-Since you already have LM Studio wired:
-
-| Task | Model Recommendation | Why |
-|---|---|---|
-| Orchestration | No LLM — pure Python/LangGraph | Flow is fixed and deterministic; no routing decisions to make |
-| Individual stat scoring | No LLM — pure math | Deterministic, faster, cheaper |
-| Final XI selection + justification | Llama 3.3 70B or Qwen2.5-72B | Needs constrained reasoning + natural language output |
-
-The orchestrator's job is fixed: always fan out to the same agents, always aggregate, always call XI selector. There is no ambiguity to resolve, so an LLM adds cost with zero benefit. Only the **XI selector** needs LLM reasoning — one LLM call per run total. This keeps local inference load minimal.
+**5. `selector_node`** — final LLM-powered selection
+- Receives venue / vs-team / recent-form stats as formatted strings
+- Applies role constraints (1+ WK, 3+ Batters, 3+ Bowlers, 1+ All-rounder, max 7 from one team)
+- Produces **12 players** (11 + 1 Impact Player) with per-player justification citing key stats
+- Falls back to `MOCK_LLM_RESPONSE` if `MOCK_LLM=true` env var is set
 
 ---
 
-## LangGraph Pattern to Use
+## Impact Score Formula
 
-Your current graph is a simple linear state machine. For this, use **Map-Reduce with the `Send` API**:
+Computed inline in `stats/metrics/batter_metrics.py` and `bowler_metrics.py` — no 0-100 normalization layer:
 
 ```python
-# Fan out: one Send per player per analysis dimension
-from langgraph.types import Send
+# Batter
+impact_score = (avg + 1) * (strike_rate / 100)
 
-def fan_out_players(state):
-    return [
-        Send("form_agent", {"player": p, "role": r})
-        for p, r in state["players"].items()
-    ]
-
-builder.add_conditional_edges("orchestrator", fan_out_players, ["form_agent"])
-# Reduce: aggregate_scores collects all results
-builder.add_edge("form_agent", "aggregate_scores")
+# Bowler
+impact_score = (wickets_per_match * 10) + (1 / economy)  # see bowler_metrics.py
 ```
 
-This runs all 22 player analyses in parallel within the graph — no sequential bottleneck.
+Agents sort by `impact_score` and pass the top-N as raw text to the LLM. The LLM does the final synthesis — there is no aggregation/normalization node between agents and the selector.
 
 ---
 
-## What You Need to Build (New)
+## LLM Strategy (Actual)
 
-| New Component | Effort | Description |
+| Task | Implementation | Why |
 |---|---|---|
-| `PlayerProfile` Pydantic model | Low | Holds role tag, team, scores per dimension |
-| Scoring functions | Medium | Normalize stats → 0-100 score per dimension |
-| `form_agent` node | Medium | Filters last 5 matches from ball-by-ball data, computes form score |
-| `venue_agent` node | Low | Wraps existing `call_batter_stats` with city filter |
-| `vs_team_agent` node | Low | Wraps existing `call_batter_stats` with team filter |
-| `xi_selector_agent` node | Medium-High | LLM prompt with role constraints |
-| New Streamlit UI tab | Medium | Input 22 players + roles + venue |
+| Orchestration / pool prep | No LLM — pure Python | Flow is fixed and deterministic |
+| Individual stat scoring | No LLM — `impact_score` formula | Deterministic, faster, cheaper |
+| Final XII selection + justification | Groq (prod) / LM Studio (local) | Needs constrained reasoning + natural language |
+
+**Prod:** Groq API with model fallback chain in order of preference:
+1. `llama-3.3-70b-versatile`
+2. `llama-3.1-8b-instant`
+3. `llama3-8b-8192`
+
+On `RateLimitError`, automatically tries next model. Raises `AllModelsRateLimitedError` if all are exhausted.
+
+**Local:** LM Studio at `http://localhost:1234/v1`
+
+**Testing:** `MOCK_LLM=true` env var skips the LLM entirely and returns a hardcoded 12-player response.
 
 ---
 
-## Recommendation Summary
+## Pydantic Models (as built in `nodes.py`)
 
-1. **Keep LangGraph** — don't switch frameworks, you're already invested and it handles this well with the `Send` API for parallel execution
-2. **Don't use an LLM for scoring** — pure pandas math is faster, cheaper, and deterministic; LLM only for final synthesis
-3. **Reuse your stat functions as-is** — they return DataFrames, just wrap them with a score normalizer
-4. **Local LLM is fine** — only 1 node (XI selector) needs LLM; Llama 3.3 70B via LM Studio handles it with minimal inference load
-5. **Build Form + Venue + VsTeam agents** — matchup agent skipped for now due to sparse H2H data at player level
+| Model | Fields | Purpose |
+|---|---|---|
+| `SessionData` | `combined_pool`, `team_a`, `team_b`, `match_city` | Input validation from Streamlit session |
+| `Team` | `batters: list[dict]`, `bowlers: list[dict]` | Per-team player pools |
+| `PlayerPools` | `team_a: Team`, `team_b: Team` | Output of `prepare_player_pools` node |
+| `State` (TypedDict) | `input`, `venue_scores`, `vs_team_scores`, `recent_form_scores`, `results`, `player_pools`, `final_choice` | LangGraph graph state |
+
+**Note:** The originally planned `PlayerProfile` Pydantic model (with normalized 0-100 scores per dimension) was not built. Scores are passed as formatted strings, not structured score objects.
+
+---
+
+## Streamlit UI (as built in `team_selector.py`)
+
+- User picks Team A + Team B from IPL 2026 squads JSON
+- Players pre-selected based on `probableXi` flag in squad data
+- City selector from `ipl_venue_cities.csv`
+- "Let AI Pick the Best 11 + 1" button triggers the LangGraph graph
+- Results shown with role icon + team color per player + AI reasoning
+- Expandable "Stats used by AI" section with 3 tabs: Venue / vs Opposition / Recent Form
+- Rate limit errors surfaced gracefully to the user
+
+---
+
+## What Was Built vs. Planned
+
+| Component | Planned | Status |
+|---|---|---|
+| `PlayerProfile` Pydantic model | Normalized scores per dimension | ❌ Not built — replaced by string-formatted stats |
+| 0-100 score normalization layer | Aggregator between agents and selector | ❌ Not built — `impact_score` formula used directly |
+| `form_agent` node | Last 5 matches, per-player | ✅ Built as `recent_form_agent` |
+| `venue_agent` node | Wraps city stats | ✅ Built |
+| `vs_team_agent` node | Wraps team H2H stats | ✅ Built |
+| `xi_selector_agent` node | LLM with role constraints | ✅ Built as `selector_node` (selects 12, not 11) |
+| LangGraph `Send` API fan-out | Per-player parallel execution | ❌ Not used — simple parallel edges instead |
+| Streamlit UI tab | Input 22 players + roles + venue | ✅ Built as full page (`team_selector.py`) |
+| Matchup agent (H2H bowler vs batter) | Skipped due to sparse data | ⏸ Tool exists (`get_batter_vs_bowler_stats`), agent not built |
+| Groq fallback chain | Not planned (LM Studio only) | ✅ Added — 3-model fallback + `MOCK_LLM` flag |
+
+---
+
+## Remaining Work / Known Gaps
+
+1. **LangGraph `Send` API** — current per-node sequential loops could be replaced with per-player parallel `Send` fan-out for lower latency on large pools
+2. **Matchup agent** — `batter_vs_bowler_stats` tool exists but no agent node uses it; useful for specific H2H matchup signals
+3. **Normalized score aggregator** — a 0-100 normalization layer between agents and the selector would make the prompt more structured and reduce LLM guesswork
+4. **Player count** — currently no enforced cap on combined pool size; very large pools may exceed the LLM context window

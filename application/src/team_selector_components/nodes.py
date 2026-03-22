@@ -4,6 +4,7 @@ from team_selector_components.prompts import selector_prompt_template
 from utils.llm import call_llm_with_fallback
 import operator
 import json
+from json_repair import repair_json
 from pydantic import BaseModel, Field, ConfigDict
 from typing import Annotated, TypedDict, List, Any
 from utils.logger import get_logger
@@ -261,7 +262,11 @@ def selector_node(state: State):
         message_from_llm = response.choices[0].message.content
         logger.info(f'selector_node LLM response: {message_from_llm}')
 
-        final_choice = json.loads(message_from_llm)
+        try:
+            final_choice = json.loads(message_from_llm)
+        except json.JSONDecodeError:
+            logger.warning("JSON parse failed, attempting repair")
+            final_choice = json.loads(repair_json(message_from_llm))
         return {"final_choice": final_choice}
     except Exception as e:
         logger.error(f"Error in selector_node: {e}")
