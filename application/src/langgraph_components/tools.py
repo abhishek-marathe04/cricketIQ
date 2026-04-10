@@ -36,17 +36,17 @@ def call_batter_stats_vs_bowler(batter_name: str, bowler_name: str):
 # Tool (could also be agent tool)
 @tool(description="Fetches Batter stats data")
 def call_batter_stats(batter_name: str, opponent_team_name: Optional[str], city_name: Optional[str], season: Optional[int], bowler_name: Optional[str], bowler_type: Optional[str]):
-    table, graph = show_batter_stats(batter_name=batter_name, opponent_team_name=opponent_team_name, city_name=city_name, season=season, bowler_name=bowler_name, bowler_type=bowler_type)
+    table, graph, summary_df = show_batter_stats(batter_name=batter_name, opponent_team_name=opponent_team_name, city_name=city_name, season=season, bowler_name=bowler_name, bowler_type=bowler_type)
     logger.info(f'Inside Fetches Batter stats data  : {table}')
-    return table, graph # placeholder
+    return table, graph, summary_df
 
 
 # Tool (could also be agent tool)
 @tool(description="Fetches Team vs Team stats")
 def call_team_vs_team_stats(team1_name: str, team2_name: str):
-    table, graph = show_team_vs_team_stats(team1_name=team1_name, team2_name=team2_name)
+    table, graph, summary_df = show_team_vs_team_stats(team1_name=team1_name, team2_name=team2_name)
     logger.info(f'Inside call_team_vs_team_stats  : {table}')
-    return table, graph # placeholder
+    return table, graph, summary_df
 
 # Tool (could also be agent tool)
 @tool(description="Fetches Particular Season Overview")

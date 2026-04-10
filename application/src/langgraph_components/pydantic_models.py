@@ -6,6 +6,7 @@ class AppState(TypedDict, total=False):
     intent: str  # the parsed intent from LLM
     args: Dict[str, Any]  # arguments extracted from LLM for your function
     result: Any  # optional: store the final result (e.g., plot, stats)
+    narrative: str
 
 
 class PlyaerStatsInSeasonArguments(BaseModel):

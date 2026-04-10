@@ -4,7 +4,7 @@ from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_
 from langgraph_components.pydantic_models import ParseIntentAndArguments
 from utils.utilities import extract_json_from_response
 from utils.llm import call_llm_with_fallback
-from langgraph_components.prompts import prompt_template
+from langgraph_components.prompts import intent_parser_prompt_template, narrate_node_prompt_template
 from utils.logger import get_logger
 from langchain_core.prompts import PromptTemplate
 from config import ENV
@@ -20,7 +20,7 @@ def parse_query_node(state):
     function_call_counts[name] = function_call_counts.get(name, 0) + 1
     
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
-    prompt = PromptTemplate.from_template(prompt_template)
+    prompt = PromptTemplate.from_template(intent_parser_prompt_template)
 
     try:
         formatted_prompt = prompt.format(query=user_input)
@@ -58,8 +58,8 @@ def run_batter_stats(state):
     
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
     tool_args = state["args"]
-    table, graph = call_batter_stats.invoke(tool_args)
-    return {**state, "result": {'table': table, 'graph': graph}}
+    table, graph, summary_df = call_batter_stats.invoke(tool_args)
+    return {**state, "result": {'table': table, 'graph': graph, 'summary_df': summary_df}}
 
 def run_team_vs_team_stats(state):
     logger.info(f'run_team_vs_team_stats: {state}')
@@ -68,8 +68,8 @@ def run_team_vs_team_stats(state):
     
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
     tool_args = state["args"]
-    table, graph = call_team_vs_team_stats.invoke(tool_args)
-    return {**state, "result": {'table': table, 'graph': graph}}
+    table, graph, summary_df = call_team_vs_team_stats.invoke(tool_args)
+    return {**state, "result": {'table': table, 'graph': graph, 'summary_df': summary_df}}
 
 
 def out_of_scope_query(state):
@@ -79,3 +79,39 @@ def out_of_scope_query(state):
     
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
     return {**state, "message": "Sorry, this query is outside the scope of CricketIQ. Please ask about historical IPL stats only."}
+
+
+def narrate_node(state):
+    logger.info(f'Inside narrate_node  : {state}')
+    user_input = state["input"]
+    stats = state["result"]["summary_df"].to_json(orient="records")
+    
+    name = 'narrate_node'
+    function_call_counts[name] = function_call_counts.get(name, 0) + 1
+    
+    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
+    prompt = PromptTemplate.from_template(narrate_node_prompt_template)
+
+    try:
+        formatted_prompt = prompt.format(query=user_input, stats_table=stats)
+
+        logger.info(f'env : {ENV}')
+        response = call_llm_with_fallback(
+            env=ENV,
+            messages=[{"role": "user", "content": formatted_prompt}],
+            temperature=0.2,
+        )
+
+        message_from_llm = response.choices[0].message.content
+        logger.info(f'message_from_llm in narrate_node: {message_from_llm}')
+        narrative = message_from_llm
+
+        return {**state, "narrative": narrative}
+
+        # return response_to_return
+    except ValidationError as e:
+        logger.error(f"Pydantic validation failed: {e}")
+        return {"error": "Validation failed", "details": str(e)}
+    except Exception as e:
+        logger.error(f"Other error in parsing: {e}")
+        return {"error": "Other parsing failure", "details": str(e)}

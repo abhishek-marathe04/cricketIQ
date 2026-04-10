@@ -70,6 +70,11 @@ if st.button("Ask") and user_input:
         else:
 
             if isinstance(inner_result, dict) and "table" in inner_result and "graph" in inner_result:
+                narrative = result.get("narrative")
+                if narrative:
+                    st.markdown("### 🧠 AI Analysis")
+                    st.info(narrative)
+
                 st.markdown("### 📊 Summary Table")
                 st.plotly_chart(inner_result["table"])
 

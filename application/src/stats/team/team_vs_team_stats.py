@@ -32,4 +32,12 @@ def show_team_vs_team_stats(team1_name:str, team2_name:  str):
     header_values = ["Head-to-Head", f"{team1} Wins", f"{team2} Wins",  "Total Matches Played"]
     cell_values = [[f"{team1} vs {team2}"], [team1_wins], [team2_wins], [total_matches]]
     table = show_table(header_values=header_values, cell_values=cell_values, title=f"Head to Head stats for {team1} vs {team2}")
-    return table, []
+
+    import pandas as pd
+    summary_df = pd.DataFrame({
+        "Head-to-Head": [f"{team1} vs {team2}"],
+        f"{team1} Wins": [team1_wins],
+        f"{team2} Wins": [team2_wins],
+        "Total Matches Played": [total_matches],
+    })
+    return table, [], summary_df

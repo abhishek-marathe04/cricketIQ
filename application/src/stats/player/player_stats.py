@@ -61,9 +61,20 @@ def show_batter_stats(batter_name:str, opponent_team_name:  Optional[str], city_
     header_values = ["Player", "Runs Scored", "Balls Faced",  "Outs", "Fours", "Sixes", "Average", "Strike Rate"]
     cell_values = [[batter_name], [runs_scored], [balls_faced], [outs], [fours], [six], [average], [strike_rate]]
     table = show_table(header_values=header_values, cell_values=cell_values, title=f"Performance Summary of {batter_name}")
-    
+
+    summary_df = pd.DataFrame({
+        "Player": [batter_name],
+        "Runs Scored": [runs_scored],
+        "Balls Faced": [balls_faced],
+        "Outs": [outs],
+        "Fours": [fours],
+        "Sixes": [six],
+        "Average": [average],
+        "Strike Rate": [strike_rate],
+    })
+
     players_runs_per_season = show_runs(player_stats, group_by_field=group_by_field, group_by_title=group_by_title)
 
     strike_rate_graph = show_player_strike_rate(player_stats, group_by_field_2, f'Strike Rate Per {group_by_title_2}')
     average_per_season = show_player_average(player_stats, group_by_field_2, player_name=batter_name, title=f"Average Per {group_by_title_2}")
-    return table, [players_runs_per_season, strike_rate_graph, average_per_season]
+    return table, [players_runs_per_season, strike_rate_graph, average_per_season], summary_df

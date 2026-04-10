@@ -93,6 +93,7 @@ def resolve_bowler_type(user_input: str) -> str:
         "fast bowler": "fast_bowlers",
         "fast bowlers": "fast_bowlers",
         "pacers": "fast_bowlers",
+        "pacer": "fast_bowlers",
 
         "medium pace": "medium_pace_bowlers",
         "medium pacers": "medium_pace_bowlers",
@@ -107,6 +108,7 @@ def resolve_bowler_type(user_input: str) -> str:
         "spin" : "spinners",
         "spinners" : "spinners",
         "spin bowlers": "spinners",
+        "spinner": "spinners",
 
         "off spin": "off_spinners",
         "off spinner": "off_spinners",
