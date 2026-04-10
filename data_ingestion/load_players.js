@@ -47,7 +47,7 @@ async function insertPlayers(playersData) {
     for (const playerName of players) {
       // Insert player
       const playerRes = await client.query(
-        "INSERT INTO players (player_name) VALUES ($1) ON CONFLICT (player_name) DO NOTHING RETURNING player_id",
+        "INSERT INTO players (player_name) VALUES ($1) ON CONFLICT (player_name) DO UPDATE SET player_name = EXCLUDED.player_name RETURNING player_id",
         [playerName]
       );
       const playerId = playerRes.rows.length ? playerRes.rows[0].player_id : null;
