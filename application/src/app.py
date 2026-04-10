@@ -33,7 +33,7 @@ user_id = st.session_state.user_id
 
 # Define sample prompts
 sample_prompts = {
-    'Fetch Player stats in season': '"How did Virat Kohli perform in season 2024?"',
+    'Fetch Player stats in season': '"How did Virat Kohli perform in season 2025?"',
     'Fetch Player stats vs bowler type': '"How does Rohit Sharma fare against pacers?"',
     'Fetch Batter stats vs bowler': '"How has Virat Kohli played against Bumrah?"',
     'Fetch Batter stats vs Team': '"Shubman Gill’s record vs MI, especially in Mumbai?"',
