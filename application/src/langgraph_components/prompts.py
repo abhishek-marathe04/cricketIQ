@@ -8,13 +8,28 @@ intent_parser_prompt_template = """
     - If the user asks for "IPL 2024" or "2024 season", extract and return only the year (e.g., 2024) as season.
     - If no season is mentioned, set season to null.
 
+    ## Deciding between batter_stats and bowler_stats
+
+    Use your knowledge of cricket to determine whether the player named is primarily known as a batter or a bowler.
+
+    - If the query is clearly about **bowling** (e.g. mentions wickets, economy, overs, bowling figures, dot balls, yorkers), classify as `bowler_stats`.
+    - If the query is clearly about **batting** (e.g. mentions runs, strike rate, centuries, sixes, batting average), classify as `batter_stats`.
+    - If the query mentions a player without specifying role, use your cricket knowledge to infer:
+      - Pure batters (e.g. Virat Kohli, Rohit Sharma, KL Rahul) → `batter_stats`
+      - Pure bowlers (e.g. Jasprit Bumrah, Lasith Malinga, Yuzvendra Chahal) → `bowler_stats`
+      - All-rounders (e.g. Hardik Pandya, Ravindra Jadeja) → default to `batter_stats` unless the query context suggests bowling.
+    - **When in doubt, default to `batter_stats`.**
+
     For batter stats:
-    - If the user asks for stats of a batter (e.g., "Virat Kohli stats"), set batter_name and leave all other arguments as null.
-    - If a filter is mentioned (season, opponent team, city, bowler name, bowler type), fill in only those arguments.
-    - Any query about a cricket batter's IPL performance — with or without filters — is a batter_stats query.
+    - Set batter_name. Optionally set opponent_team_name, city_name, season, bowler_name, bowler_type if mentioned.
+
+    For bowler stats:
+    - Set bowler_name. Optionally set opponent_team_name, city_name, season, batter_name, batter_type if mentioned.
+    - batter_type values: "Left hand Bat" or "Right hand Bat"
 
     Available functions:
     - batter_stats(batter_name, opponent_team_name, city_name, season, bowler_name, bowler_type)
+    - bowler_stats(bowler_name, opponent_team_name, city_name, season, batter_name, batter_type)
     - team_vs_team_stats(team1_name, team2_name)
     - out_of_scope_query()
 

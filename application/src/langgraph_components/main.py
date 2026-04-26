@@ -1,5 +1,5 @@
 from langgraph_components.pydantic_models import AppState
-from langgraph_components.nodes import out_of_scope_query, parse_query_node, run_batter_stats, run_team_vs_team_stats, narrate_node
+from langgraph_components.nodes import out_of_scope_query, parse_query_node, run_batter_stats, run_bowler_stats, run_team_vs_team_stats, narrate_node
 from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnableLambda
 from utils.logger import get_logger
@@ -11,6 +11,8 @@ def router(state):
     logger.info(f'Inside router  : {state}')
     if state["intent"] == "batter_stats":
         return "batter_stats"
+    if state["intent"] == "bowler_stats":
+        return "bowler_stats"
     if state["intent"] == "team_vs_team_stats":
         return "team_vs_team_stats"
     if state["intent"] == "out_of_scope_query":
@@ -21,6 +23,7 @@ def router(state):
 builder = StateGraph(state_schema=AppState)
 builder.add_node("llm_parser", RunnableLambda(parse_query_node))
 builder.add_node("batter_stats", RunnableLambda(run_batter_stats))
+builder.add_node("bowler_stats", RunnableLambda(run_bowler_stats))
 builder.add_node("team_vs_team_stats", RunnableLambda(run_team_vs_team_stats))
 builder.add_node("narrate_node", RunnableLambda(narrate_node))
 builder.add_node("out_of_scope_query", RunnableLambda(out_of_scope_query))
@@ -31,6 +34,7 @@ builder.add_conditional_edges(
     router,   # router function returning name of next node
     {
         "batter_stats": "batter_stats",
+        "bowler_stats": "bowler_stats",
         "team_vs_team_stats": "team_vs_team_stats",
         "out_of_scope_query": "out_of_scope_query",
         "__end__": END
@@ -38,6 +42,7 @@ builder.add_conditional_edges(
 )
 
 builder.add_edge("batter_stats", "narrate_node")
+builder.add_edge("bowler_stats", "narrate_node")
 builder.add_edge("team_vs_team_stats", "narrate_node")
 builder.add_edge("narrate_node", END)
 builder.add_edge("out_of_scope_query", END)

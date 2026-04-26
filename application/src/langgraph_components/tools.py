@@ -3,6 +3,7 @@ from stats.team.season_overview import season_overview
 from stats.team.team_vs_team_stats import show_team_vs_team_stats
 from stats.player.player_stats import show_batter_stats
 from stats.player.player_stats_vs_bowler import show_batter_stats_vs_bowler
+from stats.player.bowler_stats import show_bowler_stats
 from utils.logger import get_logger
 from stats.player.player_stats_vs_bowler_type import show_player_stats_vs_bowler_type
 from stats.player.player_stats_in_season import show_player_stats_in_season
@@ -54,3 +55,11 @@ def call_season_overview(season: int):
     table, graph = season_overview(season_id=season)
     logger.info(f'Inside call_season_overview  : {table}')
     return table, graph # placeholder
+
+
+# Tool (could also be agent tool)
+@tool(description="Fetches Bowler stats data")
+def call_bowler_stats(bowler_name: str, opponent_team_name: Optional[str], city_name: Optional[str], season: Optional[int], batter_name: Optional[str], batter_type: Optional[str]):
+    table, graph, summary_df = show_bowler_stats(bowler_name=bowler_name, opponent_team_name=opponent_team_name, city_name=city_name, season=season, batter_name=batter_name, batter_type=batter_type)
+    logger.info(f'Inside call_bowler_stats  : {table}')
+    return table, graph, summary_df

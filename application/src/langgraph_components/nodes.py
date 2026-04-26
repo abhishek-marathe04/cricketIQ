@@ -1,6 +1,6 @@
 import os
 from pydantic import ValidationError
-from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_stats, call_player_stats_per_season, call_player_stats_vs_bowler_type, call_season_overview, call_team_vs_team_stats
+from langgraph_components.tools import call_batter_stats_vs_bowler, call_batter_stats, call_player_stats_per_season, call_player_stats_vs_bowler_type, call_season_overview, call_team_vs_team_stats, call_bowler_stats
 from langgraph_components.pydantic_models import ParseIntentAndArguments
 from utils.utilities import extract_json_from_response
 from utils.llm import call_llm_with_fallback
@@ -69,6 +69,17 @@ def run_team_vs_team_stats(state):
     logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
     tool_args = state["args"]
     table, graph, summary_df = call_team_vs_team_stats.invoke(tool_args)
+    return {**state, "result": {'table': table, 'graph': graph, 'summary_df': summary_df}}
+
+
+def run_bowler_stats(state):
+    logger.info(f'run_bowler_stats: {state}')
+    name = 'run_bowler_stats'
+    function_call_counts[name] = function_call_counts.get(name, 0) + 1
+
+    logger.info(f"Function '{name}' has been called {function_call_counts[name]} times")
+    tool_args = state["args"]
+    table, graph, summary_df = call_bowler_stats.invoke(tool_args)
     return {**state, "result": {'table': table, 'graph': graph, 'summary_df': summary_df}}
 
 

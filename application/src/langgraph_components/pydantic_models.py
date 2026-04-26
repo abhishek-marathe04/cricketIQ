@@ -38,6 +38,15 @@ class TeamVsTeamArguments(BaseModel):
 
 class SeasonOverview(BaseModel):
     season: int
+
+class BowlerStatsArguments(BaseModel):
+    bowler_name: str
+    opponent_team_name: Optional[str] = None
+    city_name: Optional[str] = None
+    season: Optional[int] = None
+    batter_name: Optional[str] = None
+    batter_type: Optional[str] = None
+
 # Pydantic
 class ParseIntentAndArguments(BaseModel):
     """Parsing intent and User arguments"""
@@ -46,6 +55,7 @@ class ParseIntentAndArguments(BaseModel):
     arguments: Optional[Union[
         PlayerStatsAgainstBowlerTypeArguments,
         BatterStatsArguments,
+        BowlerStatsArguments,
         TeamVsTeamArguments,
         SeasonOverview
     ]] = None

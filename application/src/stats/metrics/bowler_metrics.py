@@ -88,3 +88,35 @@ def bowler_recent_form_stats(bowler, num_matches=5):
         "matches_considered": len(recent_match_ids),
         "stats": calculate_bowler_performance_metrics(matchup)
     }
+
+
+def bowler_vs_batter_stats(bowler, batter):
+    ipl_ball_by_ball_stats = get_ball_by_ball_data()
+    matchup = ipl_ball_by_ball_stats[
+        (ipl_ball_by_ball_stats['bowler'] == bowler) &
+        (ipl_ball_by_ball_stats['batter'] == batter)
+    ]
+    if matchup.empty:
+        return {"type": "bowler_vs_batter_stats", "bowler": bowler, "batter": batter, "stats": None, "message": "No historical data available"}
+    return {
+        "type": "bowler_vs_batter_stats",
+        "bowler": bowler,
+        "batter": batter,
+        "stats": calculate_bowler_performance_metrics(matchup)
+    }
+
+
+def bowler_stats_in_season(bowler, season):
+    ipl_ball_by_ball_stats = get_ball_by_ball_data()
+    matchup = ipl_ball_by_ball_stats[
+        (ipl_ball_by_ball_stats['bowler'] == bowler) &
+        (ipl_ball_by_ball_stats['season_id'] == season)
+    ]
+    if matchup.empty:
+        return {"type": "bowler_stats_in_season", "bowler": bowler, "season": season, "stats": None, "message": "No historical data available"}
+    return {
+        "type": "bowler_stats_in_season",
+        "bowler": bowler,
+        "season": season,
+        "stats": calculate_bowler_performance_metrics(matchup)
+    }
